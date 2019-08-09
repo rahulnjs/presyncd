@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>NGC Java Training</title>
+
+		<meta name="description" content="Java training content for NCG-47">
+		<meta name="author" content="Rahul Sharma">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9] >
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			#hitachi-header {
+				position: absolute;
+				right: 0px;
+				text-align: right;
+				z-index: 1111;
+			}
+
+			#hitachi-header img {
+				width: 70%;
+			}
+
+			#hitachi-footer {
+				position: absolute;
+				bottom: 5px;
+				left: 5px;
+				font-size: 10px;
+				font-family: sans-serif;
+			}
+
+			.cimg {
+				border:none !important;
+				box-shadow: none !important;
+			}
+
+			.has-many-ps p {
+				font-size: 1.3rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="hitachi-header"><img src="logo-trans.png" /></div>
+		<div id="hitachi-footer"> &copy; 2019 Hitachi Consulting Corporation. All rights reserved. Proprietary and Confidential</div>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<img src="java-logo.png" class="cimg">
+					<h1>Java</h1>
+					<h3>Core Platform</h3>
+					<p>
+						<small>By <a href="#">Rahul Sharma</a></small>
+					</p>
+				</section>
+				<section>
+					<img class="cimg" 
+					src="https://3.bp.blogspot.com/-BnTJ77LKcgM/WzG7wU1LiqI/AAAAAAAABZ8/eAaqE6Nbt7w7dCA96PC5wUaHK3-f9_s8wCLcBGAs/s1600/PRIMITIVE%2BDATA%2BTYPE.png" style="width: 50%; filter: grayscale(100%);">
+					<h1>DataTypes</h1>
+				</section>
+				<section>
+					<p>
+						<b>Primitives:</b> A primitive can be one of eight types: char, boolean, byte,
+						short, int, long, double, or float. 
+							 
+					</p>
+					<p class="fragment">
+						<img class="cimg" src="data-types.png" width: 50%;>
+					</p>
+				</section>
+				<section>
+					<p>
+						<b>Reference variables:</b> A reference variable is used to refer to (or access) an
+						object: String, Arrays and Classes
+					</p>
+
+					<p class="fragment">
+<pre><code class="hljs java" data-trim >
+String s = "Hello"; //s
+
+int[] arr = new int[5]; //arr
+
+class Product {
+  ...
+}
+
+Product prod = new Product(); //prod
+
+</code></pre>
+					</p>
+				</section>
+				<section>
+					<img src="https://www.studytonight.com/c/images/array-declaraction-in-c.jpg" class="cimg">
+					<h1>Arrays</h1>
+				</section>
+				<section>
+				<h3>Array Declaration</h3>
+<pre><code class="hljs java" data-trim >
+//Declaring an Array of Primitives
+
+int[] key; // Square brackets before name (recommended)
+int key []; // Square brackets after name (legal but less readable)
+						
+//Declaring an Array of Object References
+
+String[] names; // Recommended
+String names []; // Legal but less readable
+</code></pre>
+				</section>
+				<section>
+				<h3>Array Contd.</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+int[5] scores;
+<p class="fragment">
+The preceding code won’t compile. 
+Remember, the JVM doesn’t allocate space until
+you actually instantiate the array object.
+That’s when size matters. 
+</p>
+</code></pre>
+				</section>
+				<section>
+				<h3>Enumeration</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+enum CoffeeSize { BIG, HUGE, OVERWHELMING } 
+
+
+class Coffee {
+  CoffeeSize size;
+}
+
+public class CoffeeTest1 {
+  public static void main(String[] args) {
+    Coffee drink = new Coffee();
+    drink.size = CoffeeSize.BIG; 
+  }
+}
+</code></pre>
+				</section>
+				<section>
+								<h3>Enumeration Internally</h3>
+
+<pre><code class="hljs java" data-trim data-noescape >
+//enum CoffeeSize { BIG, HUGE, OVERWHELMING } 
+
+class CoffeeSize {
+	public static final CoffeeSize BIG =
+	 new CoffeeSize("BIG", 0);
+	public static final CoffeeSize HUGE =
+	 new CoffeeSize("HUGE", 1);
+	public static final CoffeeSize OVERWHELMING =
+	 new CoffeeSize("OVERWHELMING", 2);
+}
+</code></pre>
+
+				</section>
+				<section>
+				<h3>Enum with custom values</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+enum CoffeeSize {
+  // 8, 10 & 16 are passed to the constructor
+  BIG(8), HUGE(10), OVERWHELMING(16);
+
+  CoffeeSize(int ounces) { // constructor
+    this.ounces = ounces;
+  }
+  private int ounces; // an instance variable
+
+  public int getOunces() {
+    return ounces;
+  }
+}
+</code></pre>
+				</section>
+				<!--END OF DATA TYPES-->
+				<section>
+						<img 
+						src="https://nshipster.com/assets/swift-operators-one-plus-two-8d9f1b1c942b777c400c285fef0b38e53ce8e9482290bfbe42575e3c25d527ed.svg" style="border:none; box-shadow: none;">
+						<h1>Operators</h1>
+				</section>
+				<section>
+						<h3>Assignment Operators</h3>
+<pre><code class="hljs java" data-trim >
+int i = 10;
+int j = 15;
+        
+y = y - 6; //9
+x = x + 2 * 5; //20
+     
+y -= 6; //9
+x += 2 * 5; //20
+</code></pre>
+					</section>
+					<section>
+							<h3>Relational Operators</h3>
+<pre><code class="hljs java" data-trim >
+if (x < y) {
+	// d
+}			
+//> greater than
+//>= greater than or equal to
+//< less than
+//<= less than or equal to
+</code></pre>
+						</section>
+						<section>
+							<h3>Equality Operators</h3>
+<pre><code class="hljs java" data-trim  data-noescape >
+//== equals (also known as "equal to")
+//!= not equals (also known as "not equal to")
+<p class="fragment">	
+System.out.println("char 'a' == 'a'? " + ('a' == 'a'));
+System.out.println("char 'a' == 'b'? " + ('a' == 'b'));
+</p><p class="fragment">System.out.println("5 != 6? " + (5 != 6));</p><p class="fragment">System.out.println("5.0 == 5L? " + (5.0 == 5L));</p><p class="fragment">System.out.println("true == false? " + (true == false));</p>
+</code></pre>
+						</section>
+						<section>
+								<h3>Equality Operators</h3>
+<pre><code class="hljs java" data-trim  data-noescape >
+enum Color {RED, BLUE} 
+
+Color c1 = Color.RED;
+Color c2 = Color.RED;
+
+if(c1 == c2) { 
+  System.out.println("=="); 
+}
+if(c1.equals(c2)) {
+  System.out.println("dot equals"); 
+}
+</code></pre>
+							</section>
+							<section>
+								<h3>Equality Contd.</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+//What will be the output?
+<p class="fragment">boolean b = false;
+if (b = true) { 
+  System.out.println("b is true");
+} else { 
+  System.out.println("b is false"); 
+}</p><p class="fragment">//"b is true"</p><p class="fragment">
+// The result of any assignment expression is
+// the value of the variable following the assignment.
+</p>
+</code></pre>
+							</section>
+							<section>
+								<h3>instanceOf </h3>
+<pre><code class="hljs java" data-trim>
+ String s = new String("foo");
+ if (s instanceof String) {
+   System.out.print("s is a String");
+ }
+</code></pre>
+							</section>
+
+							<section>
+								<h3>instanceOf Contd.</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+class Cat { }
+
+class Dog {
+ public static void main(String [] args) {
+ Dog d = new Dog();
+ System.out.println(d instanceof Cat);
+ }
+}
+<p class="fragment">//Compilation Error
+</p>
+</code></pre>
+							</section>
+
+							<section>
+								<h3>Other Operators</h3>
+<pre><code class="hljs java" data-trim data-noescape >x++; // ++ increment
+y--; // -- decrement<p class="fragment">//x = (boolean expression) ? value to assign if true :
+//       value to assign if false
+max = x > y ? x : y;//Conditional Operator</p><p class="fragment">
+byte b1 = 6 & 8;
+byte b2 = 7 | 9;
+byte b3 = 5 ^ 4;
+System.out.println(b1 + " " + b2 + " " + b3);</p><p class="fragment">//0 15 1</p>
+</code></pre>
+							</section>
+							
+							<section>
+								<h3>Other Operators Contd.</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+//&& short-circuit AND
+//|| short-circuit OR
+if ((2 < 3) && (3 < 4)) { }
+if ((2 < 3) || (3 < 4)) { }
+<p class="fragment">//! boolean invert
+if(!false) {
+	//runs
+}</p><p class="fragment">if(!7) {} //bad operand type int for unary operator '!'</p>
+</code></pre>
+							</section>
+						
+				<!-- END OF OPERATORS -->
+				</section>
+
+				<section>
+						<img style="width: 40%;" src="http://magwebsitefiles2015.blob.core.windows.net/blogfiles/roshan/crm-2011-plugins-avoiding-infinite-loops-(1).png" alt="" class="cimg">
+						<h2>Condition & Loop</h2>
+				</section>
+				<section>
+					<h3>
+						If-Else
+					</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+if(x == 9) {
+  //do something
+} else if(x == 5) {
+  //do something else
+} else {
+  //do whatever
+}
+</code></pre>
+				</section>
+				<section>
+					<h3>
+						Switch 
+					</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+switch(x) {
+  case 9:
+	//do something
+	break;
+  case 5:
+	//do something else
+	break;
+  default:
+	//do whatever
+	break;
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h3>
+						while & do-while 
+					</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+int count = 3;
+while(count < 9) {
+  count++;
+  print(count);
+}
+//4 5 6 7 8 9
+<p class="fragment">do {
+  count++;
+  print(count);
+} while(count < 9);
+//4 5 6 7 8 9</p>
+</code></pre>
+				</section>
+
+				<section>
+					<h3>
+						for & for-each
+					</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+int[] arr = {1, 2, 3};
+
+for(int i = 0; i < arr.length; i++) {
+  print(arr[i]);
+}
+//1 2 3
+
+<p class="fragment">for(int i : arr) {
+  print(i);
+}
+//1 2 3</p>
+</code></pre>
+				</section>
+<section>
+					<h3>
+						break & continue
+					</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+int[] arr = {1, 2, 3};
+
+for(int i = 0; i < arr.length; i++) {
+  if(arr[i] == 1) {
+    continue;
+  }
+  print(arr[i]);
+  if(arr[i] == 2) {
+	  break;
+  }
+}
+//1 2 3
+</p>
+</code></pre>
+				</section>
+
+				<!--END OF LOOPS-->
+				<section>
+						<img src="https://cdn.shopify.com/s/files/1/1776/4317/products/i_object_9133a445-5c7d-461b-8cbd-abe568e52093_320x.jpg" alt="" class="cimg">
+						<h2>Object
+								Initialization</h2>
+				</section>
+				<section>
+					<h3>
+						How are Objects created?
+					</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+public class KeyValue {
+  private int key;
+  private String value;
+  public KeyValue() {}
+  public KeyValue(int key, String value) {
+    this.key = key;
+    this.value = value;
+  }
+  public void print() { print(key + ": " + value)}
+}
+
+KeyValue kv1 = new KeyValue(); //0: null
+KeyValue kv2 = new KeyValue(1, "Java"); //1: Java
+</code></pre>
+				</section>
+				<section>
+					<h3>
+						Constructor, this & this()
+					</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers data-line-numberss="4,6">
+public class KeyValue {
+  ...
+
+  public KeyValue() {}
+  
+  public KeyValue(int key, String value) {
+	this.key = key; //this refers to the current object
+    this.value = value;
+  }
+ 
+}
+
+</code></pre>
+				</section>
+				<section>
+					<h3>
+						Extend, super() & super
+					</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+public class Car {
+  int wheels = 4;
+  public car() { print("car created " + wheels);}
+}
+
+public class Audi extends Car {
+  public Audi() {<p class="fragment">    super();</p>    print("Audi created " + super.wheels);
+  }
+}
+
+Audi a3 = new Audi();
+//car created 4
+//Audi created 4
+</code></pre>
+				</section>
+				<section>
+						<h3>Stack & Heap</h3>
+						<img src="http://isd-soft.com/wp-content/uploads/2018/01/Java-memory-management.-CMA_2.jpg" alt="" class="cimg">
+						
+				</section>
+				<section>
+					<section>
+						<h3>Garbage Collection</h3>
+						<img src="https://codeahoy.com/img/blogs/hotspot-heap.png" alt="" class="cimg">
+					</section>
+					<section>
+						<h3>Object.finalize()</h3>
+						<pre><code class="hljs java" data-trim data-noescape >
+
+public class Finalizable {
+  private BufferedReader reader;
+ 
+  public Finalizable() {
+    this.reader = new BufferedReader(new InputStreamReader(input));
+  }
+
+  @Override
+  public void finalize() {
+    try {
+      reader.close();
+	} catch (IOException e) {}
+  }
+}
+</code></pre>
+					</section>
+				</section>
+				<!--End Of Object Initialization-->
+				<section>
+					<img src="https://javatutorial.net/wp-content/uploads/2014/11/class-object-featured-image.png" alt="" class="cimg">
+					<h2>Object
+							Orientation</h2>
+				</section>
+				<section>
+					<h3>Code Reuse</h3>
+					<p class="fragment">
+						&#10003; DRY 
+					</p>
+					<p class="fragment" style="font-size: 1rem; color: gray;">
+						Don't repeat yourself
+					</p>
+					<p class="fragment">
+						&#10003; Open-Closed Principle
+					</p>
+					<p class="fragment" style="font-size: 1rem; color: gray;">
+						Open for extension, closed for modification
+					</p>
+					<p class="fragment">
+						&#10003; High Cohesion, Low Coupling
+					</p>
+					<p class="fragment" style="font-size: 1rem; color: gray;">
+						Your class should have one purpose <br> classes should have less dependency among each other
+					</p>
+				</section>
+				<section>
+					<h4>Is-A Relation</h4>
+					<pre><code class="hljs java" data-trim data-noescape >
+class Car {
+  private int wheel;
+  ...
+  accelerate() {
+    //accelarate like a Car
+  }
+
+  honk() {}
+}
+
+class Audi extends Car {
+  accelerate() {
+    //accelarate like Audi
+  }
+}
+</code></pre>
+				</section>
+
+				<section>
+					<h4>Has-A Relation</h4>
+					<pre><code class="hljs java" data-trim data-noescape >
+class Human {
+  private Book book;
+  ...
+  setBook(book) { this.book = book; }
+  read() {
+    book.read(); //assume it has a read()
+  }
+}
+
+//somewhere
+Book youDontKnowJS = new Book()
+Human rahul = new Human();
+rahul.setBook(youDontKnowJS)
+rahul.read();
+
+</code></pre>
+				</section>
+				<section>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Subsets_subtypes.png/550px-Subsets_subtypes.png" alt="" class="cimg">
+					<h2>Polymorphism</h2>
+				</section>
+				<section>
+					<h4>Polymorphism: When?</h4>
+					<pre><code class="hljs java" data-trim data-noescape data-line-numbers data-line-numberss="2,8-9,14">
+class Car {
+  public void accelerate() {
+    //accelarate like a Car
+  }
+}
+
+class Audi extends Car {
+  @Override
+  public void accelerate() {
+    //accelarate like Audi
+  }
+}
+
+Car car = new Audi();
+car.accelerate();
+</code></pre>
+				</section>
+				<section class="has-many-ps">
+					<h3>Overriding Rules</h3>
+					<p class="fragment">
+						&#10003; The argument list must exactly match.
+					</p>
+					<p class="fragment">
+						&#10003; The return type must be the same or a subtype.
+					</p>
+					<p class="fragment">
+						&#10003; The access level can't be more restrictive (can be less).
+					</p>
+					<p class="fragment">
+						&#10003; The overriding method CAN throw any unchecked (runtime) exception
+					</p>
+					<p class="fragment">
+						&#10003; The overriding method must NOT throw checked exceptions that are new
+						or broader
+					</p>
+					<p class="fragment">
+						&#10003; The overriding method can throw narrower or fewer exceptions.
+					</p>
+					<p class="fragment">
+						&#10003; You cannot override a method marked final or static.
+					</p>
+				</section>
+				<section>
+					<h4>Still Overriding?</h4>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers data-line-numberss="2,7">
+public class Foo {
+  public void doStuff(int y, String s) { }
+  public void moreThings(int x) { }
+}
+
+class Bar extends Foo {
+  public void doStuff(int y, long s) throws IOException { }
+}
+</code></pre>
+				</section>
+				<section class="has-many-ps">
+						<h3>Overloading Rules</h3>
+						<p class="fragment">
+							&#10003; Overloaded methods MUST change the argument list.
+						</p>
+						<p class="fragment">
+							&#10003; Overloaded methods CAN change the return type.
+						</p>
+						<p class="fragment">
+							&#10003; Overloaded methods CAN change the access modifier.
+						</p>
+						<p class="fragment">
+							&#10003; Overloaded methods CAN declare new or broader checked exceptions
+						</p>
+				</section>
+				<section class="has-many-ps">
+					<h3>Abstraction</h3>
+										<pre><code class="hljs java" data-trim data-noescape >
+abstract class Car {
+  public abstract void accelerate();
+
+  honk() {}
+}
+
+class Audi extends Car {
+  public void accelerate() {
+    //accelarate like Audi
+  }
+}
+</code></pre>
+				</section>
+				<section class="has-many-ps">
+					<h3>Can-Be Interface</h3>
+										<pre><code class="hljs java" data-trim data-noescape >
+public interface Drivable {
+  void drive();
+}
+
+class Audi implements Drivable {
+  public void drive() {
+    start();
+    accelerate();
+  }
+  public void accelerate() {
+    //accelarate like Audi
+  }
+}
+</code></pre>
+				</section>
+				<section>
+					<section>
+					<h3>static</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+class HitachiEmployee {
+  //not an employee's property	
+  static HitachiOffice office;
+  private int employeeId;
+  private String grade;
+  ...
+
+  public static HitachiOffice getOffice() {}
+}
+
+HitachiEmployee rahul = new HitachiEmployee();
+HitachiEmployee dhoni = new HitachiEmployee();
+</code></pre>
+					</section>
+					<section>
+					<h3>static{ ... }</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+class HitachiEmployee {
+  //not an employee's property	
+  public static HitachiOffice office;
+  private int employeeId;
+  private String grade;
+  ...
+
+  static {
+	  office = new HitachiOffice();
+  }
+}
+
+</code></pre>
+					</section>
+				</section>
+				<section>
+					<h3>final</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+//can't be reassigned
+final int num = 90;
+
+//can't be extended
+final class FinalClass {}
+
+//can't be overriden
+final void finalMethod() {}
+</code></pre>
+					</section>
+					<section>
+							<img src="http://journals.ecs.soton.ac.uk/java/tutorial/java/exceptions/images/throwableHierarchy_trans.gif" alt="" class="cimg">
+							<h2>Errors & Exceptions</h2>
+					</section>
+					<section>
+					<h3>Unchecked(Runtime) Exception</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+class TestEx {
+  public static void main (String [] args) {
+    doStuff();
+  }
+  static void doStuff() {
+    doMoreStuff();
+  }
+  static void doMoreStuff() {
+  int x = 5/0; // Can't divide by zero!
+  // ArithmeticException is thrown here
+  }
+}
+</code></pre>
+					</section>
+			        <section>
+					<h3>Checked Exception</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+class TestEx {
+
+  public static void main(String[] s) {
+	BufferedReader br = 
+	    new BufferedReader(new InputStreamReader(System.in));
+	br.readLine(); //IOException may occur
+  }
+
+}
+
+//String readLine(boolean ignoreLF) throws IOException { ... }
+</code></pre>
+					</section>
+					<section>
+					<h3>try, catch & finally</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+class TestEx {
+
+  public static void main(String[] s) {
+	BufferedReader br = 
+	    new BufferedReader(new InputStreamReader(System.in));
+    try {
+      br.readLine(); //IOException may occur
+    } catch(Exception e) { //optional if finally is defined
+      //log exception
+    } finally { //optional if catch is defined
+      //Always runs
+    }
+  }
+}
+</code></pre>
+					</section>
+					<section>
+					<h3>throw & throws</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+public static void main(String[] s) throws Exception {
+  BufferedReader br = 
+    new BufferedReader(new InputStreamReader(System.in));
+  br.readLine(); 
+  br.close();
+}
+
+if(b == 0) {
+  throw new ArithmeticException();
+} else {
+  return a / b;
+}
+</code></pre>
+					</section>
+					<section>
+							<img src="https://www.programcreek.com/wp-content/uploads/2013/09/string-pass-by-reference--650x247.jpeg" alt="" class="cimg">
+							<h2>String</h2>
+					</section>
+					<section>
+					<h3>What the heck is String pool</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+String s = "hitachi";
+String s1 = "hitachi";
+
+print(s == s1); //?
+
+s1.toUpperCase();
+print(s1); //?
+
+String s2 = new String("hitachi");
+
+print(s == s2); //?
+</code></pre>
+					</section>
+					<section>
+					<h3>Object.toString()</h3>
+<pre><code class="hljs java" data-trim data-noescape >
+class Foo {
+  int a = 19;
+  int b = 20;<p class="fragment">  public String toString() { return a + ", " b}</p>
+}
+
+Foo foo = new Foo();
+print(foo); // ? 
+</code></pre>
+					</section>
+					<section>
+					<h3>String Builder & Buffer</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers="8-10,13">
+String x = "abc";
+x.concat("def");
+System.out.println("x = " + x);  //abc
+
+x = x.concat("def");
+System.out.println("x = " + x); //abcdef
+
+StringBuilder sb = new StringBuilder("abc");
+sb.append("def");
+System.out.println( sb );  //abcdef
+
+//sb.append("").reverse().delete(2).insert(2, 'def');
+//String Buffer is just threadsafe.
+</code></pre>
+					</section>
+					<section>
+						<img src="https://app.coditor.in/images/langs/java.png" class="cimg">
+						<h1>Java</h1>
+						<h3>I/O</h3>
+						<p>
+							<small>By <a href="#">Rahul Sharma</a></small>
+						</p>
+					</section>
+					
+					
+
+
+					<section>
+						<img src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/03293428c79e9ad8e72c0f2ad4708eb9d3276948/24-Figure1-1-1.png" class="cimg">
+						<h2>File Navigation and I/O </h2>
+					</section>
+
+					<section>
+					<h3>File</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers>
+import java.io.*;
+
+class Writer1 {
+  public static void main(String [] args) {
+    try { // warning: exceptions possible
+      boolean newFile = false;
+      File file = new File("fileWrite1.txt");
+      System.out.println(file.exists()); // look for a real file
+      newFile = file.createNewFile(); // maybe create a file!
+      System.out.println(newFile); // already there?
+      System.out.println(file.exists()); // look again
+    } catch(IOException e) { }
+  }
+}
+
+</code></pre>
+					<h6>Objects of type File are used to represent the actual files or directories that exist on a computer's physical disk.</h6>
+					</section>
+					<section> 
+					<h3>FileWriter</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers>
+File file = new File("fileWrite2.txt"); // just an object
+ 
+//a FileWriter obj
+FileWriter fw = new FileWriter(file); // create an actual file
+
+									  
+fw.write("Welcome to Hitachi"); // write characters to the file
+
+fw.flush(); // flush before closing
+fw.close(); // close file when done
+</code></pre>
+					</section>
+					<section>
+					<h3>FileReader</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers="">
+File file = new File("fileWrite2.txt");
+
+FileReader fr = new FileReader(file); // create a FileReaderobject
+
+char[] in = new char[50]; //temp buffer
+
+size = fr.read(in); // read the whole file!
+
+System.out.print(size + " "); // how many bytes to read
+
+for(char c : in) // print the array
+  System.out.print(c);
+
+fr.close(); // again, always close
+</code></pre>
+					</section>
+					<section>
+					<h3>IO Classes</h3>
+					<p class="fragment">
+						<img src="io-classes.png" alt="" class="cimg" style="width: 70%;">
+					</p>
+					</section>
+					<section>
+						<h3>Directories</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers="3">
+File existingDir = new File("existingDir"); // assign a dir
+
+System.out.println(existingDir.isDirectory());
+
+File existingDirFile = new File(existingDir, 
+             "existingDirFile.txt"); // assign a file
+
+System.out.println (existingDirFile.isFile());
+FileReader fr = new FileReader(existingDirFile);
+BufferedReader br = new BufferedReader(fr); // make a Reader
+String s;
+while( (s = br.readLine()) != null) // read data
+  System.out.println(s);
+br.close();
+</code></pre>
+					</section>
+					<section>
+							<h3>Directories</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers="">
+String[] files = new String[100];
+File search = new File("searchThis");
+files = search.list(); // create the list
+for(String fn : files) // iterate through it
+  System.out.println("found " + fn);
+</code></pre>
+					</section>
+
+					<section> 
+					<h3>Calendar & Date</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers>
+import java.util.*;
+class Dates2 {
+  public static void main(String[] args) {
+    Date d1 = new Date(1_000_000_000_000L);
+    System.out.println("1st date " + d1.toString());
+    Calendar c = Calendar.getInstance();
+    c.setTime(d1); // #1
+    if(Calendar.SUNDAY == c.getFirstDayOfWeek()) // #2
+      System.out.println("Sunday is the first day of the week");
+      System.out.println("trillionth milli day of week is "
+      + c.get(Calendar.DAY_OF_WEEK)); // #3
+      c.add(Calendar.MONTH, 1); // #4
+      Date d2 = c.getTime(); // #5
+      System.out.println("new date " + d2.toString() );
+    }
+}
+</code></pre>
+					</section>
+					<section>
+					<h3>Date Format</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers>
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
+
+public class SimpleDateFormatExample {  
+  public static void main(String[] args) {  
+	Date date = new Date();  
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+    String strDate= formatter.format(date);  
+    System.out.println(strDate);  
+  }  
+}  
+
+// 26/06/2019
+</code></pre>
+					</section>
+					<section data-background-iframe="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html" data-background-interactive>
+					</section>
+
+					<section>
+						<h3>RegEx</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers>
+//import java.util.regex.*;
+
+String pattern = "\\d+";
+String text = "1 a12 234b";
+Pattern p = Pattern.compile(pattern);
+Matcher m = p.matcher(text);
+while(m.find()) {
+  System.out.println(m.start() + " " + m.group());
+}
+
+//0 1
+//3 12
+//6 234
+
+</code></pre>
+					</section>
+					<section>
+						<img src="https://www.oracle.com/technetwork/database/application-development/jdbc/jdbc-2-4389800.png" class="cimg">
+						<h2>JDBC </h2>
+					</section>
+					<section>
+							<h3>Let's get a connection first</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers>
+Class.forName("oracle.jdbc.OracleDriver");
+
+String url = "jdbc:oracle:thin:@db.coditor.in:1521:xe"; // JDBC URL
+String user = "rahulnjs"; 
+String pwd = "root"; 
+
+Connection conn = DriverManager.getConnection(url, user, pwd); 
+</code></pre>
+					</section>
+					<section>
+						<section>
+							<h2>DriverManager</h2>
+							<img src="drivem-1.png" alt="" class="cimg">
+						</section>
+						<section>
+							<h2>DriverManager</h2>
+							<img src="drivem-2.png" alt="" class="cimg">
+						</section>
+					</section>
+					<section>
+							<h3>Quering the DB</h3>
+<pre><code class="hljs java" data-trim data-noescape data-line-numbers="3, 7, 9, 10, 11">
+Connection conn = DriverManager.getConnection(url, user, pwd);  
+
+Statement stmt = conn.createStatement(); // Create Statement
+
+String query = "SELECT * FROM Customer";
+
+ResultSet rs = stmt.executeQuery(query); // Execute Query
+
+while (rs.next()) { // Process Results
+  out.print(rs.getInt("CustomerID") + " "); // Print Columns
+  out.print(rs.getString("FirstName") + " ");
+  out.print(rs.getString("LastName") + " ");
+  out.print(rs.getString("EMail") + " ");
+  out.println(rs.getString("Phone"));
+}
+</code></pre>
+					</section>
+					<section>
+						<h2>ResultSet</h2>
+						<img src="rs.png" alt="" class="cimg">
+					</section>
+					<section>
+						<h2>Reading the ResultSet</h2>
+						<img src="rs2.png" alt="" class="cimg">
+					</section>
+					<section>
+						<h2>Statements</h2>
+<pre><code class="hljs java" data-trim data-noescape>
+Statement stmt = conn.createStatement(); // Create Statement
+<p class="fragment">String pQuery = "SELECT UnitPrice from Book WHERE Title LIKE ?";
+PreparedStatement pstmt = conn.prepareStatement(pQuery);
+pstmt.setString(1, "%Heroes%"); </p><p class="fragment">String cQ = "{call getBooksDateRange(?, ?, ?)}";
+CallableStatement cstmt = conn.prepareCall(cQ);
+cstmt.setInt(1, customerID); 
+cstmt.setDate(2, fromDate); 
+cstmt.setDate(3, toDate); 
+</p>
+</code></pre>
+					</section>
+					<section>
+						<img src="https://static.javatpoint.com/images/core/java-serialization.png" class="cimg">
+						<h2>Serialization </h2>
+					</section>
+					<section>
+							<h2> Object IO Stream</h2>
+	<pre><code class="hljs java" data-trim data-noescape>
+class Cat implements Serializable { } 
+
+Cat c = new Cat(); 
+<p class="fragment">FileOutputStream fs = new FileOutputStream("testSer.ser");
+ObjectOutputStream os = new ObjectOutputStream(fs);
+os.writeObject(c); </p> <p class="fragment">FileInputStream fis = new FileInputStream("testSer.ser");
+ObjectInputStream ois = new ObjectInputStream(fis);
+c = (Cat) ois.readObject(); </p>
+</code></pre>
+					</section>
+					<section>
+					<h2> Object Graph</h2>
+<pre><code class="hljs java" data-trim data-noescape>
+class Dog implements Serializable {
+  private Collar theCollar;
+  private int dogSize;
+  public Dog(Collar collar, int size) { ... }
+  public Collar getCollar() { return theCollar; }
+}
+
+class Collar {
+  private int collarSize;
+  public Collar(int size) { collarSize = size; }
+  public int getCollarSize() { return collarSize; }
+}
+</code></pre>
+						<p class="fragment">
+							Collar must implement Serializable
+						</p>
+					</section>
+					<section>
+						<h2> transient! huh?</h2>
+<pre><code class="hljs java" data-trim data-noescape>
+class Dog implements Serializable {
+  private transient Collar theCollar; // add transient
+  // the rest of the class as before
+}
+</code></pre>
+					</section>
+					<section>
+						<h1>Thanks.</h1>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
+
+				slideNumber: true,
+				
+				controls: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,35 @@
+
+		<script src="/reveal/js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
+
+				slideNumber: true,
+				
+				controls: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/reveal/plugin/highlight/highlight.js', async: true },
+					{ src: '/reveal/plugin/search/search.js', async: true },
+					{ src: '/reveal/plugin/zoom-js/zoom.js', async: true },
+					{ src: '/reveal/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+		<script src="/app/js/socket.js"></script>
+	</body>
+</html>

@@ -1,0 +1,236 @@
+<%- include('../header') %>
+<%- include('../hitachi-hfr') %>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<img src="/ncg/img/node-logo.png" class="cimg" style="width: 350px;">
+			<h3>NodeJS</h3>
+			<h5>A JavaScript runtime built on Chrome's V8 engine</h5>
+			<p>
+				<small>By <a href="#">Rahul Sharma</a></small>
+			</p>
+		</section>
+
+		<section>
+			<h3>Who created NodeJS?</h3>
+			<p class="fragment">
+				<img src="/ncg/img/ryan.jpg" class="cimg" style="border-radius: 5px;">
+			</p>
+			<p class="fragment">Ryan Dahl</p>
+			<p class="fragment"><small>in 2009</small></p>
+		</section>
+
+		<section>
+			<section data-background-iframe="/ncg/html/node-history.html" data-background-interactive> </section>
+		</section>
+
+		<section>
+			<h4>So what is Node JS?</h4>
+			<p class="fragment">
+				A JavaScript runtime!<br>
+				<img src="/ncg/img/runtime-node.gif" class="cimg" style="width: 550px; height: 270px">
+			</p>
+			<p class="fragment">
+				<small>That's it.</small>
+			</p>
+		</section>
+
+		<section class="has-many-ps" style="text-align: left">
+			<h4><em>Node</em> characteristics,</h4>
+			<p class="fragment">
+				&#10024; <em>Single Threaded</em>
+			</p>
+			<p class="fragment">
+				&#10024; <em>Event Driven</em>
+			</p>
+			<p class="fragment">
+				&#10024; <em>Non Blocking I/O</em>
+			</p>
+		</section>
+		
+		<section class="has-many-ps" style="text-align: left">
+			<h4><em>Node</em> Misconceptions,</h4>
+			<p class="fragment">
+				&#10024; <em><strike>NodeJS is a web server</strike></em>
+			</p>
+			<p class="fragment">
+				&#10024; <em><strike>NodeJS is a framework</strike></em>
+			</p>
+			<p class="fragment">
+				&#10024; <em><strike>NodeJS is written in JavaScript</strike></em>
+			</p>
+		</section>
+
+		<section>
+			<section>
+				<h4><em>Node</em> Architecture</h4>
+				<img src="/ncg/img/arch.png" alt="" class="cimg">
+			</section>
+
+			<section>
+				<h3>What are these?</h3>
+				<img src="/ncg/img/v8-libuv.png" alt="" class="cimg">
+			</section>
+
+			<section>
+				<h5>Google Chrome's V8 engine</h5>
+				<img src="/ncg/img/v8-2.png" alt="" class="cimg" style="width: 50%;">
+				<br>
+				<small>A place where JavaScript runs</small>
+			</section>
+
+			<section>
+				<img src="/ncg/img/libuv.png" alt="" class="cimg" style="width: 300px; height: 50px;">
+				<br>
+				<img src="/ncg/img/libuv-1.png" alt="" class="cimg">
+				<br>
+				<small>A place where async-magic happens: EventLoop</small>
+			</section>
+
+			<section>
+				<h6>EventLoop</h6>
+				<img src="/ncg/img/el.jpeg" alt="" class="cimg" style="width: 80%;">
+			</section>
+
+		</section>
+				
+		<section>
+			<h3>
+				Node Package Manager<br>
+			</h3>
+			<img src="/ncg/img/npm.png" class="cimg" style="width: 550px; height: 270px">
+			<p class="fragment">
+				<small>Central repository for open source modules</small>
+			</p>
+		</section>
+		<section>
+			<h5>
+				<em>Asynchrony</em> in action</h5>
+<pre class="code-col"><code class="hljs javascript" data-trim data-noescape >
+process.nextTick(function() {
+  console.log('process.nextTick 1');
+});
+fs.writeFile('file.txt',
+ 'I there', function(err) {
+  console.log('Written');
+});
+setTimeout(function() {
+  console.log('setTimeOut 0');
+  process.nextTick(function() {
+    console.log('process.nextTick 2');
+  });
+}, 0);
+
+</code></pre>
+<pre class="code-col"><code class="hljs javascript" data-trim data-noescape >
+setImmediate(function() {
+  console.log('setImmediate');
+});
+process.nextTick(function() {
+  console.log('process.nextTick 3');
+});
+
+//process.nextTick 1
+//process.nextTick 3
+//setTimeOut 0
+//process.nextTick 2
+//setImmediate
+//Written
+
+</code></pre>
+		</section>
+		<section>
+			<h5>
+				<em>fs</em> module</h5>
+<pre style="width: 600px;"><code class="hljs javascript" data-trim data-noescape >
+const fs = require('fs');
+
+fs.writeFile('file.txt', 'I there', function(err) {
+  console.log('Written');
+});
+
+fs.readFile('file.txt', function(err, data) {
+  console.log(data);
+});
+</code></pre>
+		</section>
+		<section>
+			<h5>
+				<em>http</em> module</h5>
+<pre style="width: 600px;"><code class="hljs javascript" data-trim data-noescape >
+const http = require('http');
+
+const port = 3333;
+const server = http.createServer((req, res) => {
+  res.statusCode = 200
+  res.setHeader('Content-Type', 'text/html')
+  res.end('Hello, World!');
+});
+
+server.listen(port, () => {
+  console.log(`Server running at port ${port}`);
+});
+</code></pre>
+		</section>
+		<section>
+			<h5>
+				<em>module.exports</em></h5>
+<pre style="width: 600px;"><code class="hljs javascript" data-trim data-noescape >
+//myMod.js
+module.exports.print = function(txt) {
+    console.log(txt);
+}
+
+//index.js
+const mod = require('myMod');
+mod.print('this');
+</code></pre>
+		</section>
+		<section>
+			<h5>
+				<em>express</em> framework</h5>
+<pre style="width: 600px;"><code class="hljs shell" data-trim data-noescape >
+> npm install express-genrator -g
+> express myApp 
+</code></pre>
+		</section>
+
+		<section>
+			<h4>
+				<em>API</em> design</h4>
+			<img src="/ncg/img/api.gif" class="cimg" style="width: 650px;">
+		</section>
+		<section>
+			<h4>
+				<em>CORS</em> what?</h4>
+				<img src="/ncg/img/cors.jpg" class="cimg" style="width: 650px;">
+<pre style="width: 600px;"><code class="hljs js" data-trim data-noescape >
+res.set('Content-Type', 'text/html')
+</code></pre>
+		</section>
+		<section>
+			<h4>
+				<em>Chat</em> Application</h4>
+			<img src="/ncg/img/chat.gif" class="cimg" style="width: 450px;">
+		</section>
+
+
+
+		<!----  ADD Before this ONLY ---->
+		<section>
+			<h6>Seriuosly?</h6>
+			<img src="/ncg/img/cj-1.png" class="cimg" style="border-radius: 5px; width: 80%;">
+			<br><small><a href="https://www.youtube.com/watch?v=M3BM9TB-8yA" target="_blank">watch here</a></small>
+		</section>
+		<section>
+			<h6>Genius! isn't it?</h6>
+			<img src="/ncg/img/ryan-1.png" class="cimg" style="border-radius: 5px; width: 80%;">
+			<br><small><a href="https://www.youtube.com/watch?v=M3BM9TB-8yA" target="_blank">watch here</a></small>
+		</section>
+		<section>
+			<h1>Thanks.</h1>
+		</section>
+
+	</div>
+</div>
+<%- include('../footer')%>

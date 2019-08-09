@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <style>
+        .container {
+            margin: 0px auto;
+            width: 60%;
+            margin-top: 7%;
+            text-align: center;
+        }
+
+        .block {
+            position: relative;
+            margin: 0px auto;
+            width: 200px;
+            height: 200px;
+            background-color: #CB4335;
+            transition: all 1s ease-out;
+            box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, .5);
+            border-radius: 50%;
+        }
+
+        .anim {
+            animation: anim-demo2 1s ease-out 0s infinite;
+        }
+
+        @keyframes anim-demo {
+            10% {
+                transform: rotateZ(21deg);
+            }
+
+            30% {
+                transform: rotateY(45deg);
+
+            }
+
+            50% {
+                transform: skew(10deg, 10deg);
+            }
+
+            70% {
+                transform: rotateX(80deg);
+            }
+
+            90% {
+                transform: translate(40px, 59px);
+            }
+
+            100% {
+                transform: none;
+            }
+        }
+
+        @keyframes anim-demo2 {
+            0% {
+                transform: rotateY(0deg);
+                background-color: #CB4335;
+            }
+
+            25% {
+                transform: rotateY(45deg);
+                background-color: #EB984E;
+
+            }
+
+            50% {
+                transform: rotateY(90deg);
+                background-color: #239B56;
+            }
+
+            75% {
+                transform: rotateY(45deg);
+                background-color: #2E86C1;
+            }
+
+            100% {
+                transform: rotateY(0deg);
+                background-color: #7F8C8D;
+            }
+        }
+
+        button {
+            margin: 0px auto;
+            display: block;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 4px;
+            background-color: #F44336;
+            color: #fff;
+            font-family: monospace;
+            width: 200px;
+            height: 50px;
+            font-size: 25px;
+            box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, .5);
+            transition: all .4s ease-out;
+        }
+
+        button:hover {
+            background-color: #880E4F;
+            transform: scale(1.1, 1.1);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div style="font-family: monospace; font-size: 3rem; text-align: center; margin-top: 80px;">transition, transform &
+        animation</div>
+    <div class="container">
+        <div class="block anim" id="blck"></div>
+    </div>
+    <div style="text-align: center; margin-top: 60px;">
+        <button>Hover Me</button>
+    </div>
+</body>
+
+</html>
