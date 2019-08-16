@@ -1,0 +1,601 @@
+<%- include('../header') %>
+<%- include('../hitachi-hfr') %>
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<img src="/ncg/img/ui-logo.png" class="cimg" style="width: 450px;">
+			<h1>UI</h1>
+			<h3>HTML, CSS & Javascript</h3>
+			<p>
+				<small>By <a href="#">Rahul Sharma</a></small>
+			</p>
+		</section>
+		<section>
+			<section data-background-iframe="/ncg/html/ui-route-map.html" data-background-interactive> </section>
+		</section>
+		<section>
+			<h4>Tools Required</h4>
+			<p class="fragment">
+				<img src="/ncg/img/ui-tools.png" class="cimg" style="width: 90%; border-radius: 5px;">
+			</p>
+		</section>
+		<section>
+			<h3>Who created HTML?</h3>
+			<p class="fragment">
+				<img src="/ncg/img/html1.jpg" class="cimg" style="width: 58%; border-radius: 5px;">
+			</p>
+			<p class="fragment">Tim Berners Lee</p>
+		</section>
+		<section>
+			<p>
+				<img src="/ncg/img/web-page.png" class="cimg" style="width: 48%; border-radius: 5px;">
+			</p>
+		</section>
+		<section>
+			<section data-background-iframe="/ncg/html/basic-html.html" data-background-interactive> </section>
+		</section>
+
+		<section>
+			<section data-background-iframe="/ncg/html/html-cheat.html" data-background-interactive> </section>
+		</section>
+		
+		<section class="has-many-ps">
+			<h5>Who created CSS?</h5>
+			<p class="fragment">
+				<img src="/ncg/img/css1.jpg" class="cimg" style="width: 400px; border-radius: 5px;">
+			</p>
+			<p class="fragment">HÅKON WIUM LIE</p>
+			<blockquote class="fragment" style="font-size: 1.6rem;">
+				In English, my first name is unpronounceable,
+				my middle name is shortened to a single letter,
+				and my last name does not build confidence.
+				I therefore go by the name <b>howcome</b> which,
+				although grammatically dubious, is the closest
+				pronounceable approximation.
+			</blockquote>
+		</section>
+		<section class="has-many-ps">
+			<h5>What is CSS?</h5>
+			<p class="fragment">
+				<img src="/ncg/img/css-rule.png" class="cimg" style="width: 350px; border-radius: 5px;">
+			</p>
+			<p class="fragment">
+				CSS provides the vocabulary to tell a web browser things like,
+			</p>
+			<p class="fragment" style="font-size: 1.6rem;">
+				“I want my headings to be really big and my sidebar to appear
+				on the left of the main article.”
+			</p>
+		</section>
+		<section>
+			<h4>Ways to declare CSS</h4>
+			<p>
+				<img src="/ncg/img/css-cascade-0755f2.png" class="cimg"
+					style="width: 350px; height: 450px; border-radius: 5px;">
+			</p>
+		</section>
+		<section>
+			<h4>CSS Box Model</h4>
+			<img src="/ncg/img/css-box.png" class="cimg" style="width: 350px; border-radius: 5px;">
+		</section>
+		<section>
+			<section>
+				<h4>Define Padding</h4>
+				<img src="/ncg/img/padding-shortform-four-values-93c021.png" alt="" class="cimg" style="width: 400px;">
+				<p class="fragment" style="font-size: 1.2rem;">Margin can also be defined in the same way.</p>
+			</section>
+			<section>
+				<h4>Define Padding Shortform</h4>
+				<img src="/ncg/img/padding-shortform-two-values-a7ed4c.png" alt="" class="cimg" style="width: 400px;">
+			</section>
+			<section>
+				<h4>Define Border</h4>
+				<img src="/ncg/img/css-border-syntax-d8ba17.png" alt="" class="cimg" style="width: 400px;">
+			</section>
+		</section>
+		<section>
+			<h4>Have you seen the <em>blocks</em>?</h4>
+			<img src="/ncg/img/inline-vs-block-boxes-f3e662.png" class="cimg" style="width: 500px; border-radius: 5px;">
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>div {
+  display: block;
+}
+
+div {
+  display: inline-block;
+}
+</code></pre>
+		</section>
+		<section>
+			<section>
+				<h4>CSS Selectors</h4>
+				<img src="/ncg/img/css-selectors-24276e.svg" class="cimg" style="width: 350px; border-radius: 5px;">
+			</section>
+			<section>
+				<h4>Class Selector</h4>
+				<img src="/ncg/img/class-reusing-css-styles-9e43c5.png" class="cimg"
+					style="width: 450px; border-radius: 5px;">
+				<pre style=" width: 400px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div class=&quot;list&quot;&gt;&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 400px;"><code class="hljs css" data-trim data-line-numbers>.list {
+  color: red;
+  background-color: #e1e1e1;
+}</code></pre>
+			</section>
+			<section>
+				<h4>ID Selector</h4>
+				<img src="/ncg/img/dependency-between-fragments-and-css-4e4425.png" class="cimg"
+					style="width: 450px; border-radius: 5px;">
+				<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div id=&quot;unique-div&quot;&gt;&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>#unique-div {
+  color: #xxxxxx;
+  ...
+}</code></pre>
+			</section>
+		</section>
+		<section>
+			<h4>Element Flow</h4>
+			<img src="/ncg/img/vertical-vs-horizontal-stacking-064f76.png" class="cimg"
+				style="width: 500px; border-radius: 5px;">
+		</section>
+		<section>
+			<h4>Position</h4>
+			<img src="/ncg/img/positioned-elements-terminology-861fca.png" class="cimg"
+				style="width: 600px; border-radius: 5px;">
+		</section>
+		<section>
+			<h5>CSS Specificity: Order matters</h5>
+			<pre style=" width: 550px;"><code class="hljs html" data-trim data-line-numbers>&lt;div class=&quot;red green blue&quot;&gt;Hello&lt;/div&gt;
+</code></pre>
+			<pre style=" width: 550px;"><code class="hljs css" data-trim data-line-numbers>.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+</code></pre>
+		</section>
+		<section>
+			<h4>Is it <em style="font-family: monospace">!important;</em></h4>
+			<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers>&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot; id=&quot;my-child&quot;&gt;
+    hello
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.parent .child {
+  color: #2ECC71;
+}
+
+.child {
+  color: #F39C12 !important;
+}
+
+#my-child {
+  color: #8E44AD;
+}</code></pre>
+		</section>
+		<section>
+			<img src="/ncg/img/how-responsive-websites-work-5f0a33.png" class="cimg"
+				style="width: 450px; border-radius: 5px;">
+			<h4>Are you <em>responsive</em>?</h4>
+		</section>
+		<section>
+			<img src="/ncg/img/simple-responsive-media-queries-703f8b.png" class="cimg"
+				style="width: 500px; border-radius: 5px;">
+			<p class="fragment">Media Queries</p>
+			<p class="fragment">
+				<img src="/ncg/img/media-query-terms-137d06.png" class="cimg" style="width: 550px; border-radius: 5px;">
+			</p>
+		</section>
+		<section>
+			<h4>Contd...</h4>
+			<pre><code class="hljs css" data-trim data-line-numbers>
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  body { ... }
+}
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body { ... }
+}
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  body { ... }
+}
+</code></pre>
+		</section>
+		<section>
+			<section data-background-iframe="/ncg/html/anim.html" data-background-interactive> </section>
+		</section>
+
+
+		<!------------------------------ JAVASCRIPT ----------------------------------->
+		<section>
+			<img src="/ncg/img/js-intro.jpg" class="cimg" style="width: 600px;">
+			<h3>Javascript</h3>
+		</section>
+		<section>
+			<section data-background-iframe="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f" data-background-interactive> </section>
+		</section>
+		<section>
+			<h3>Who is the father of the <em>weirdo</em> ?</h3>
+			<p class="fragment">
+				<img src="/ncg/img/brendaneich25607.web_.jpg" class="cimg" style="width: 340px; border-radius: 5px;">
+			</p>
+			<p class="fragment">Brendan Eich</p>
+		</section>
+		<section class="has-many-ps bullets">
+			<h3>Little Background</h3>
+			<p class="fragment">
+				&#10003; Created in 10 days in 1995, was called Mocha
+				renamed to LiveScript, ended up with Javascript.
+
+			</p>
+			<p class="fragment">
+				&#10003; 1996, Javascript was handed to
+				European Computer Manufacturers Association (ECMA).
+				Sometimes called ECMAScript2015/16/..
+
+			</p>
+			<p class="fragment">
+				&#10003; TC39 means Technical Committee number 39. It’s part of ECMA, the institution which standardizes
+				the JavaScript language under the “ECMAScript” specification.
+
+			</p>
+			<p class="fragment">
+				&#10003; JavaScript is used as client-side programming language by 95.2% of all the websites.
+
+			</p>
+
+		</section>
+		<section>
+			<h3>Versions</h3>
+			<img src="/ncg/img/versions.png" class="cimg" style="width: 75%;">
+		</section>
+		<section>
+			<h3>Good vs <strike>Bad</strike> All</h3>
+			<img src="/ncg/img/js6.jpg" class="cimg" style="width: 65%;">
+		</section>
+
+		<section>
+			<h3>Types</h3>
+			<img src="/ncg/img/types.png" class="cimg" style="width: 500px;">
+		</section>
+		<section>
+			<h3>Number</h3>
+			<pre><code class="hljs javascript" data-trim data-noescape >
+var num = 13;
+var double = 34.53446;
+
+typeof double; //number
+typeof num; //number
+
+double.toFixed(1) // 34.5
+double.toFixed(3) // 34.534
+<p class="fragment">console.log((.1 + .2) == .3); /*false*/</p><p class="fragment">console.log(.1 + .2); //0.30000000000000004	</p>
+</code></pre>
+		</section>
+
+		<section>
+			<h3>Infinity or Not a Number</h3>
+			<pre class="code-col"><code class="hljs javascript" data-trim data-noescape ><p class="fragment">var a = 2 / '2';</p><p class="fragment">/*a -> 1*/</p><p class="fragment">var n = 2 / 'two';</p><p class="fragment">/*n -> NaN*/</p><p class="fragment">console.log(n == NaN); </p><p class="fragment">/*false*/</p><p class="fragment">console.log(isNaN(n), typeof NaN); </p><p class="fragment">/*true, number*/</p>
+				</code></pre>
+			<pre
+				class="code-col"><code class="hljs javascript" data-trim data-noescape ><p class="fragment">var b = 99 / 0;</p><p class="fragment">/*Infinity*/</p><p class="fragment">var c = 4 / -0; /*-Infinity*/</p><p class="fragment">var neg = 0 * -4;</p><p class="fragment">/*-0*/</p><p class="fragment">var negZ = -4 * 0;</p><p class="fragment">/*-0*/</p><p class="fragment">//super weird!</p></code></pre>
+		</section>
+		<section>
+			<h3><em>null</em> & <em>undefined</em></h3>
+			<pre><code class="hljs javascript" data-trim data-noescape >
+var a;
+console.log(a); //undefined -> missing value
+
+var b = null;
+console.log(b); //null -> empty value
+</code></pre>
+			<p class="fragment"><img src="/ncg/img/o-null.jpg" style="width: 600px; height: 300px;" class="cimg"></p>
+		</section>
+		<section>
+			<img src="/ncg/img/funct.png" class="cimg" style="margin-top: -35px;">
+		</section>
+		<section class="has-many-ps left-align bullets">
+			<h4>Defining a function</h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+function liveFree() {
+  console.log('function body!');
+}
+
+//calling
+liveFree();
+</code></pre>
+		</section>
+		<section class="has-many-ps left-align bullets">
+			<h4>Function with <em>args</em></h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+function liveFree(patientce) {
+  console.log(patientce);
+}
+
+liveFree(true); //true
+
+liveFree(); //undefined
+</code></pre>
+		</section>
+		<section class="has-many-ps left-align bullets">
+			<h4><strike>blocked</strike> <em>function</em> scope</h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+function liveFree(a) {
+  var b = 10;
+  if(true) {
+    var c = 9;
+    console.log(a + b + c);
+  }
+  console.log(a + b + c);
+}
+
+liveFree(5); 
+//24
+</code></pre>
+		</section>
+		<section class="has-many-ps left-align bullets">
+			<h4><em>blocked</em> scope, finally</h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+function liveFree(a) {
+  var b = 10;
+  if(true) {
+    let c = 9;
+    console.log(a + b + c);
+  }
+  console.log(a + b + c); //Err! c is undefined
+}
+
+
+liveFree(5); 
+//24
+<em style="color: #cc9393">Uncaught ReferenceError: c is not defined</em>
+</code></pre>
+		</section>
+		<section class="has-many-ps left-align bullets">
+			<h4>Functions as values</h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+//First Class Function
+var valFunc = function() {
+  console.log('I can be used as a value');
+};
+
+valFunc(); //I can be ...
+
+function someFunction(func) {
+  func();
+}
+
+someFunction(valFunc); //I can be ...
+</code></pre>
+		</section>
+		<section>
+			<h3>
+				<em>object & prototype</em>
+			</h3>
+			<img src="/ncg/img/bject.jpg" alt="" class="cimg" style="width: 500px;">
+			<p class="fragment">No offence!</p>
+		</section>
+		<section>
+			<h4>Function as <em>constructor</em></h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+function Human(n) {
+  this.name = n;
+}
+var sachin = new Human('Sachin');
+sachin.eat = function() { 
+  console.log(this.name, 'eating..');
+}
+sachin.eat(); //Sachin eating..
+<p class="fragment">var virat = new Human('Virat');
+virat.eat();<p class="fragment"><em style="color: #cc9393">TypeError: virat.eat is not a <em style="color: #cc9393">function</em></em></p></p></code></pre>
+		</section>
+				<section>
+			<h4><em>prototype</em></h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+function Human(n) {
+  this.name = n;
+}
+
+Human.prototype.eat = function() { 
+  console.log(this.name, 'eating..');
+}
+
+var sachin = new Human('Sachin');
+sachin.eat(); //Sachin eating..
+
+var virat = new Human('Virat');
+virat.eat(); //Virat eating..
+</code></pre>
+		</section>
+		<section>
+			<h4>ES2015 <em>class</em></h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+class Human {
+  constructor(n) {
+    this.name = n;
+  }
+
+  eat() { 
+	console.log(this.name, 'eating..');
+  }
+}
+
+var sachin = new Human('Sachin');
+sachin.eat(); //Sachin eating..
+
+var virat = new Human('Virat');
+virat.eat(); //Virat eating..
+</code></pre>
+		</section>
+		<section>
+			<h3>
+				<em>shorthand object & JSON</em>
+			</h3>
+			<img src="/ncg/img/js3.jpg" alt="" class="cimg" style="width: 650px;">
+		</section>
+		<section>
+			<h4>Object literal or <em>map</em></h4>
+<pre><code class="hljs javascript" data-trim data-noescape >
+var mapObj = {
+  name: 'Gosling',
+  knownFor: 'Java'
+}
+
+console.log(mapObj); //{name: "Gosling", knownFor: "Java"}
+
+mapObj.fullName = 'James Gosling';
+mapObj['where'] = 'Sun Microsystems';
+
+console.log(mapObj); 
+//{name: "Gosling", knownFor: "Java", fullName: "James Gosling",
+//where: "Sun Microsystems"}
+</code></pre>
+		</section>
+		<section>
+			<h3>
+				Bind <em>this</em>
+			</h3>
+			<img src="/ncg/img/bind-this.jpg" alt="" class="cimg" style="width: 650px;">
+		</section>
+		<section>
+			<h4>Problem</h4>
+			<pre><code class="hljs javascript" data-trim data-noescape >function hello() {
+  setTimeout(function callback() {
+    console.log(this.counter);
+  }, 200);
+}
+
+var obj = { counter: 3, x: hello};
+obj.x();<p class="fragment">
+//after 200millis
+//undefined 
+</p>
+</code></pre>
+		</section>
+		<section>
+			<h4>Who calls callback?</h4>
+			<p class="fragment">
+				<img src="/ncg/img/event-loop.svg" alt="" class="cimg">
+			</p>
+		</section>
+		<section>
+			<h4>Solution</h4>
+			<pre><code class="hljs javascript" data-trim data-noescape >function hello() {
+  var that = this;
+  setTimeout(function callback() {
+    console.log(that.counter);
+  }, 200);
+}
+
+var obj = { counter: 3, x: hello};
+obj.x();<p class="fragment">
+//after 200millis
+//3 
+</p>
+</code></pre>
+		</section>
+		<section>
+			<h3>
+				<em>arrays</em>
+			</h3>
+			<img src="/ncg/img/array.jpg" alt="" class="cimg" style="width: 650px;">
+		</section>
+		<section>
+			<h4>Arrays are objects</h4>
+			<pre><code class="hljs javascript" data-trim data-noescape >
+var arr = [];
+arr.push('one');
+arr[1] = 'two';
+arr[3] = 'three';
+console.log(arr); // ['one', 'two', empty, 'three']
+console.log(arr[2]); /*undefined*/ <p class="fragment">
+arr[4294967294] = 'last possible index';
+arr[4294967295] = 'large-value';
+arr[4294967297] = 'large-value-2';</p>
+</code></pre>
+		</section>
+		<section>
+			<h4>Strings</h4>
+			<pre><code class="hljs javascript" data-trim data-noescape >
+var a = 10;
+var b = 20;
+
+var c {
+  a: a,
+  b: b
+}
+
+console.log('Sum of ' + a + ' and ' + b + ' is ' + (a + b));
+
+console.log('Sum of ' + c.a + ' and ' + c.b + ' is ' + (c.a + c.b));
+
+//Sum of 10 and 20 is 30
+</code></pre>
+		</section>
+		<section>
+			<h4>String literal</h4>
+			<pre><code class="hljs javascript" data-trim data-noescape >
+var a = 10;
+var b = 20;
+var c { a: a, b: b }
+
+console.log(`Sum of ${a} and ${b} is ${a + b}`);
+console.log(`Sum of ${c.a} and ${c.b} is ${c.a + c.b}`);
+//Sum of 10 and 20 is 30  -- * 2
+
+var multiLine = `Line 1
+line 2
+lin3`;
+console.log(multiLine);
+</code></pre>
+		</section>
+		<section>
+			<h3>
+				<em>Kyle Simpson</em>
+			</h3>
+			<img src="/ncg/img/js7.jpg" alt="" class="cimg" style="width: 650px;">
+		</section>
+		<section>
+			<h3>
+				<em>Kyle Simpson</em>
+			</h3>
+			<img src="/ncg/img/js5.jpg" alt="" class="cimg" style="width: 650px;">
+		</section>
+		<section>
+			<h3>
+				<em>Father's insight</em>
+			</h3>
+			<img src="/ncg/img/js1.png" alt="" class="cimg" style="width: 650px;">
+		</section>
+		<section>
+			<h3>
+				<em>Father's insight</em>
+			</h3>
+			<img src="/ncg/img/js2.png" alt="" class="cimg" style="width: 650px;">
+		</section>
+		<section>
+			<h6>Do watch!</h6>
+			<img src="/ncg/img/framework.png" class="cimg" style="border-radius: 5px; width: 80%;">
+			<br><small><a href="https://www.youtube.com/watch?v=k7n2xnOiWI8" target="_blank">watch here</a></small>
+		</section>
+
+		<section>
+			<h1>Thanks.</h1>
+		</section>
+	</div>
+
+</div>
+<%- include('../footer.ejs')%>

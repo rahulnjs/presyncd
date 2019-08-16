@@ -1,4 +1,12 @@
 module.exports = {
+    '49': {
+        'ui-intro': {
+            file: '/ui-intro',
+            title: 'HTML, CSS & Javascript',
+            logo: '/ncg/img/ui-logo.png',
+            as: 'UI'
+        }
+    },
     '47': {
         'java': {
             file: '/java',

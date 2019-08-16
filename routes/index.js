@@ -23,7 +23,6 @@ router.get('/nd/p/:batch/:topic', function(req, res) {
 
 
 router.post('/np', function(req, res, next) {
-  console.dir(req.body);
   global._ps[req.body.pid] = {
     users: {},
     master: null

@@ -5,7 +5,7 @@
     
     var _view = '';
 
-    var batches = Object.keys(meta);
+    var batches = Object.keys(meta).sort((x, y) => y - x);
 
     const $MODAL = initModal(); 
 
