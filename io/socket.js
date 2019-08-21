@@ -33,7 +33,7 @@ module.exports.init = function(server) {
 
         client.on('key', function (msg) {
             var room = getRoom(msg);
-            if (client.id == room.master.id) {
+            if (room && client.id == room.master.id) {
                 broadcast('key', room);
             }
         });
@@ -58,15 +58,15 @@ module.exports.init = function(server) {
             return room;
         }
 
-    });
+        function broadcast(evt, room) {
+            Object.keys(room.users).forEach(function (id) {
+                var client = room.users[id];
+                if (client.id != room.master.id) {
+                    client.emit(evt, room._msg);
+                }
+            });
+        }
 
-    function broadcast(evt, room) {
-        Object.keys(room.users).forEach(function (id) {
-            var client = room.users[id];
-            if (client.id != room.master.id) {
-                client.emit(evt, room._msg);
-            }
-        });
-    }
+    });  
 
 }
