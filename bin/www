@@ -37,7 +37,9 @@ io.on('connection', (client) => {
 
   client.on('slave', function(msg) {
     var room = getRoom(msg);
-    room.users[client.id] = client;
+    if(room) {
+      room.users[client.id] = client;
+    }
   });
 
   client.on('sync', function(msg) {
@@ -62,9 +64,12 @@ io.on('connection', (client) => {
   function getRoom(msg) {
     var parts = msg.split('///');
     var room = global._ps[parts[0]];
-    if(room)
-    room._msg = parts[1];
-    room._id = parts[0];
+    if(room) {
+      room._msg = parts[1];
+      room._id = parts[0];
+    } else {
+      console.log('No Rooms for', msg);
+    }
     return room;
   }
 
