@@ -13,9 +13,11 @@ module.exports.init = function(server) {
 
         client.on('master', function (msg) {
             var room = getRoom(msg);
-            room.master = client;
-            room.users[client.id] = client;
-            global._ps.ms[client.id] = room._id;
+            if(room) {
+                room.master = client;
+                room.users[client.id] = client;
+                global._ps.ms[client.id] = room._id;
+            }
         });
 
         client.on('slave', function (msg) {
