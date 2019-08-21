@@ -1,17 +1,23 @@
 module.exports = {
     '49': {
-        'ui-intro': {
-            file: '/ui-intro',
-            title: 'HTML, CSS & Javascript',
-            logo: '/ncg/img/ui-logo.png',
-            as: 'UI'
+        'web-intro': {
+            file: '/web',
+            title: 'Web Fundamentals',
+            logo: '/ncg/img/web-logo.png',
+            as: 'Web Intro'
+        },
+        'java': {
+            file: '/java',
+            title: 'Core Java, IO, JDBC',
+            logo: '/ncg/img/java-logo.svg',
+            as: 'Java'
         }
     },
     '47': {
         'java': {
             file: '/java',
             title: 'Core Java, IO, JDBC',
-            logo: '/ncg/img/java-logo.png',
+            logo: '/ncg/img/java-logo.svg',
             as: 'Java'
         },
         'ui': {
