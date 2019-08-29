@@ -4,7 +4,7 @@
 
 > Present you Reveal JS presentation with style.
 
-##DEMO
+## DEMO
 
 ![alt](https://i.imgur.com/EjKqg8N.gif)
 
