@@ -1,7 +1,7 @@
 module.exports = {
     '49': {
         'web-intro': {
-            file: '/web',
+            file: '/web-intro',
             title: 'Web Fundamentals',
             logo: '/ncg/img/web-logo.png',
             as: 'Web Intro'
