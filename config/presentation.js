@@ -11,6 +11,18 @@ module.exports = {
             title: 'Core Java, IO, JDBC',
             logo: '/ncg/img/java-logo.svg',
             as: 'Java'
+        },
+        'ui': {
+            file: '/ui',
+            title: 'HTML, CSS & Javascript',
+            logo: '/ncg/img/ui-logo.png',
+            as: 'UI'
+        },
+        'node': {
+            file: '/node',
+            title: 'Node JS',
+            logo: '/ncg/img/node-logo.png',
+            as: 'Node JS'
         }
     },
     '47': {
