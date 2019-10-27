@@ -2,7 +2,7 @@
 
 ### A Distributed Synchronized Presentation Environment
 
-> Present you Reveal JS presentation with style.
+> Present your Reveal JS presentation with style.
 
 ## DEMO
 
