@@ -1,4 +1,12 @@
 module.exports = {
+    'intern-2020': {
+        'web-intro': {
+            file: '/web-intro',
+            title: 'Web Fundamentals',
+            logo: '/ncg/img/web-logo.png',
+            as: 'Web Intro'
+        }
+    },
     '49': {
         'web-intro': {
             file: '/web-intro',
