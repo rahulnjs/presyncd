@@ -6,6 +6,6 @@
 
 ## DEMO
 
-![alt](https://i.imgur.com/EjKqg8N.gif)
+![alt](https://i.imgur.com/NwDajuR.gif)
 
 END
