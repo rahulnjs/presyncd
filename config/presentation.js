@@ -7,7 +7,7 @@ module.exports = {
             as: 'Web Intro'
         }
     },
-    'Node': {
+    'node': {
         'day-one': {
             file: '/day-one',
             title: 'Node JS Day One',
