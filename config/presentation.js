@@ -7,6 +7,14 @@ module.exports = {
             as: 'Web Intro'
         }
     },
+    'Node': {
+        'day-one': {
+            file: '/day-one',
+            title: 'Node JS Day One',
+            logo: '/ncg/img/node-logo.png',
+            as: 'Day One'
+        }
+    },
     '49': {
         'web-intro': {
             file: '/web-intro',
