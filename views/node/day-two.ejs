@@ -1,0 +1,55 @@
+<%- include('../header') %>
+<%- include('../hitachi-hfr') %>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<img src="/ncg/img/node-logo.png" class="cimg" style="width: 350px;">
+			<h3>NodeJS</h3>
+			<h5>A JavaScript runtime built on Chrome's V8 engine</h5>
+			<p>
+				<small>By <a href="#">Rahul Sharma</a></small>
+			</p>
+		</section>
+
+<section>
+			<h2>
+				How does a server work?</h2>
+		</section>
+		<section>
+			<h5>
+				<em>http</em> module</h5>
+<pre style="width: 600px;"><code class="hljs javascript" data-trim data-noescape >
+const http = require('http');
+
+const port = 3333;
+const server = http.createServer((req, res) => {
+  res.statusCode = 200
+  res.setHeader('Content-Type', 'text/html')
+  res.end('Hello, World!');
+});
+
+server.listen(port, () => {
+  console.log(`Server running at port ${port}`);
+});
+</code></pre>
+		</section>
+
+		<section>
+			<h5>
+				<em>express</em> framework</h5>
+<pre style="width: 600px;"><code class="hljs shell" data-trim data-noescape >
+> npm install express-genrator -g
+> express myApp 
+</code></pre>
+		</section>
+
+<section>
+	<h1>Q&A</h1>
+</section>
+<section>
+	<h2>Thanks</h2>
+</section>
+
+	</div>
+</div>
+<%- include('../footer')%>

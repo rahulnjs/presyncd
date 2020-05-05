@@ -13,6 +13,12 @@ module.exports = {
             title: 'Node JS Day One',
             logo: '/ncg/img/node-logo.png',
             as: 'Day One'
+        },
+        'day-two': {
+            file: '/day-one',
+            logo: '/ncg/img/node-logo.png',
+            title: 'Node JS Day Two',
+            as: 'Day Two'
         }
     },
     '49': {
