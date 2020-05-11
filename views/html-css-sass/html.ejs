@@ -1,0 +1,265 @@
+<%- include('../header') %>
+<%- include('../hitachi-hfr') %>
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<img src="/ncg/img/html5.png" class="cimg" style="width: 350px;">
+			<h2>HTML5</h2>
+			<p>
+				<small>By <a href="#">Rahul Sharma</a></small>
+			</p>
+		</section>
+		<section>
+			<h3>Who created HTML?</h3>
+			<p class="fragment">
+				<img src="/ncg/img/html1.jpg" class="cimg" style="width: 58%; border-radius: 5px;">
+			</p>
+			<p class="fragment">Tim Berners Lee</p>
+		</section>
+		<section>
+			<p>
+				<img src="/ncg/img/web-page.png" class="cimg" style="width: 48%; border-radius: 5px;">
+			</p>
+		</section>
+		<section>
+			<h4>Forms</h4>
+			<p>
+				<img src="https://www.internetingishard.com/html-and-css/forms/html-form-elements-939709.png" class="cimg"
+					style="width: 48%; border-radius: 5px;">
+			</p>
+		</section>
+		<section>
+			<h4>Form Declaration</h4>
+			<p>
+				<img src="/ncg/img/form-action-attribute-68258a.png" class="cimg"
+					style="width: 48%; border-radius: 5px;">
+			</p>
+			<p class="">
+				<pre style="width: 600px"><code class="hljs html" data-trim data-line-numbers>
+&lt;form action=&quot;/server&quot; method=&quot;get&quot;&gt;
+  &lt;input id=&quot;full-name&quot; name=&quot;full-name&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+			</p>
+		</section>
+		<section>
+			<h4>Form Data</h4>
+			<p class="">
+				<pre style="width: 600px"><code class="hljs html" data-trim data-line-numbers>
+&lt;label for=&quot;full-name&quot;&gt;Name&lt;/label&gt;
+&lt;input id=&quot;full-name&quot; name=&quot;full-name&quot;&gt;
+</code></pre>
+			</p>
+			<p class="fragment">
+				<img src="/ncg/img/label-element-for-attribute-313489.png" class="cimg"
+					style="width: 400px; border-radius: 5px;">
+			</p>
+			<p class="fragment">
+				<img src="/ncg/img/sending-input-variable-to-server-653369.png" class="cimg"
+					style="width: 600px; border-radius: 5px;">
+			</p>
+		</section>
+
+
+		<section>
+			<section data-background-iframe="/ncg/html/html-cheat.html" data-background-interactive> </section>
+		</section>
+		<section>
+			<h3>Drag & Drop</h3>
+			<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"
+			 style="border-radius: 3px; line-height: 300px; font-size: 30px; color: #d8d8d8; width: 60%; margin: 0px auto; text-align: center; border: 1px dashed #e1e1e1;">
+				Drop target
+			</div>
+			<div id="dropped-item" style="font-size: 25px;"></div>
+		</section>
+
+		<section>
+			<h3>Geo Location</h3>
+<pre><code class="hljs javascript" data-trim data-noescape >function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition((position) => {
+	  //position.coords.latitude
+	  //position.coords.longitude
+    });
+  } else { 
+    console.log("Geolocation is not supported by this browser.");
+  }
+}</code></pre>
+			<div id="mapholder" style="min-height: 100px; line-height: 100px; color: gray">
+
+			</div>
+			<button onclick="getLocation()" style="border: none; color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			background-color: #555555;
+			border-radius: 4px;
+			font-size: 16px; font-family: inherit; cursor: pointer;">Get Location</button>
+		</section>
+
+
+
+		<section>
+			<h3>History API</h3>
+<pre><code class="hljs javascript" data-trim data-noescape >history.pushState({page: 3}, "title 3", "/page3");
+history.pushState({page: 1}, "title 1", "/page1");
+history.pushState({page: 2}, "title 2", "/page2");
+history.replaceState({page: 4}, "title 4", "/page4");
+
+history.back();    //history.go(-1);
+history.forward(); //history.go(1);
+</code></pre>
+			<div id="history-holder" style="line-height: 50px; font-size: 25px; color: gray">
+
+			</div>
+			<button onclick="history.back()" style="border: none; color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			background-color: #555555;
+			border-radius: 4px;
+			display: inline-block;
+			margin: 0px 20px;
+			font-size: 16px; font-family: inherit; cursor: pointer;">Back</button>
+			<button onclick="pushHistory()" style="border: none; color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			background-color: #555555;
+			border-radius: 4px;
+			display: inline-block;
+			margin: 0px 20px;
+			font-size: 16px; font-family: inherit; cursor: pointer;">Push History</button>
+			<button onclick="history.go(1)" style="border: none; color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			background-color: #555555;
+			border-radius: 4px;
+			display: inline-block;
+			margin: 0px 20px;
+			font-size: 16px; font-family: inherit; cursor: pointer;">Next</button>
+		</section>
+		<section>
+			<h3>FullScreen API</h3>
+<pre><code class="hljs javascript" data-trim data-noescape >function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+	document.documentElement.requestFullscreen();
+  } else {
+	if (document.exitFullscreen) {
+	  document.exitFullscreen(); 
+	}
+  }
+}
+
+document.addEventListener('fullscreenchange', (event) => {
+  if (document.fullscreenElement) { //on } 
+  else { //off }
+}
+</code></pre>
+<div style="line-height: 50px; font-size: 25px; color: gray">
+Fullscreen: <span id="full-scr">OFF</span>
+</div>
+<button onclick="toggleFullScreen()" style="border: none; color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			background-color: #555555;
+			border-radius: 4px;
+			display: inline-block;
+			margin: 0px 20px;
+			font-size: 16px; font-family: inherit; cursor: pointer;" id="fcrn-btn">Go Fullscreen</button>
+		</section>
+
+        <section>
+            <h1>Q&A</h1>
+        </section>
+		<section>
+			<h1>Thanks.</h1>
+		</section>
+
+</div>
+<script>
+function allowDrop(ev) {
+  ev.dataTransfer.setData("text", ev.target.innerText);
+  ev.preventDefault();
+}
+
+function drop(ev) {
+  var dropped = document.getElementById('dropped-item');
+  ev.preventDefault();
+  dropped.innerHTML = '';
+  if (ev.dataTransfer.items) {
+    for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+      if (ev.dataTransfer.items[i].kind === 'file') {
+        var file = ev.dataTransfer.items[i].getAsFile();
+        dropped.innerHTML += '... file[' + i + '].name = ' + file.name + '<br>';
+      } else {
+		dropped.innerHTML += ev.dataTransfer.getData('text') + '<br>';
+      }
+    }
+  } else {
+    for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+		dropped.innerHTML += '... file[' + i + '].name = ' + ev.dataTransfer.files[i].name;
+    }
+  }
+}
+
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    document.getElementById("mapholder").innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  var latlon = parseFloat(position.coords.latitude).toFixed(3) +
+   ", " + parseFloat(position.coords.longitude).toFixed(3);
+
+  var img_url = `https://maps.googleapis.com/maps/api/staticmap?center=${latlon}&zoom=14&size=400x300&sensor=false&key=AIzaSyAKLBNw6PFTmb5nYKobQgswESlipHtZuVw`;
+//"<img src='"+img_url+"'>";
+  document.getElementById("mapholder").innerHTML = latlon;
+}
+
+
+function pushHistory() {
+	document.getElementById("history-holder").innerHTML = '';
+	window.onpopstate = function(event) {
+		document.getElementById("history-holder").innerHTML += '<div style="display: inline-block; padding: 0px; padding-right: 10px;">' + JSON.stringify(event.state) + '</div>';
+	}
+
+	history.pushState({page: 3}, "title 3", "/page3");
+	history.pushState({page: 1}, "title 1", "/page1");
+	history.pushState({page: 2}, "title 2", "/page2");
+	history.replaceState({page: 4}, "title 4", "/page4");
+	
+
+}
+
+
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen(); 
+    }
+  }
+}
+
+document.addEventListener('fullscreenchange', (event) => {
+  if (document.fullscreenElement) {
+	document.getElementById("full-scr").innerHTML = 'ON';
+	document.getElementById('fcrn-btn').innerHTML = 'Exit Fullscreen';
+  } else {
+	document.getElementById("full-scr").innerHTML = 'OFF';
+	document.getElementById('fcrn-btn').innerHTML = 'Go Fullscreen';
+  }
+});
+
+</script>
+<%- include('../footer.ejs')%>

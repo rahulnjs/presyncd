@@ -66,5 +66,26 @@ module.exports = {
             logo: '/ncg/img/node-logo.png',
             as: 'Node JS'
         }
+    },
+    'html-css-sass': {
+        'html': {
+            file: '/html',
+            title: 'HTML5',
+            logo: '/ncg/img/html5.png',
+            as: 'HTML5'
+        },
+        'css': {
+            file: '/css',
+            title: 'CSS3',
+            logo: '/ncg/img/css3.png',
+            as: 'CSS3'
+        },
+        'sass': {
+            file: '/sass',
+            title: 'SASS',
+            logo: '/ncg/img/sass.png',
+            as: 'SASS'
+        }
     }
+
 };

@@ -1,0 +1,458 @@
+<%- include('../header') %>
+<%- include('../hitachi-hfr') %>
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<img src="/ncg/img/css3.png" class="cimg" style="width: 350px;">
+			<h2>CSS3</h2>
+			<p>
+				<small>By <a href="#">Rahul Sharma</a></small>
+			</p>
+		</section>
+		
+		<section class="has-many-ps">
+			<h5>Who created CSS?</h5>
+			<p class="fragment">
+				<img src="/ncg/img/css1.jpg" class="cimg" style="width: 400px; border-radius: 5px;">
+			</p>
+			<p class="fragment">HÅKON WIUM LIE</p>
+			<blockquote class="fragment" style="font-size: 1.6rem;">
+				In English, my first name is unpronounceable,
+				my middle name is shortened to a single letter,
+				and my last name does not build confidence.
+				I therefore go by the name <b>howcome</b> which,
+				although grammatically dubious, is the closest
+				pronounceable approximation.
+			</blockquote>
+		</section>
+		<section class="has-many-ps">
+			<h5>What is CSS?</h5>
+			<p class="fragment">
+				<img src="/ncg/img/css-rule.png" class="cimg" style="width: 350px; border-radius: 5px;">
+			</p>
+			<p class="fragment">
+				CSS provides the vocabulary to tell a web browser things like,
+			</p>
+			<p class="fragment" style="font-size: 1.6rem;">
+				“I want my headings to be really big and my sidebar to appear
+				on the left of the main article.”
+			</p>
+		</section>
+		<section>
+			<h4>Ways to declare CSS</h4>
+			<p>
+				<img src="/ncg/img/css-cascade-0755f2.png" class="cimg"
+					style="width: 350px; height: 450px; border-radius: 5px;">
+			</p>
+		</section>
+		<section>
+			<h4>CSS Box Model</h4>
+			<img src="/ncg/img/css-box.png" class="cimg" style="width: 350px; border-radius: 5px;">
+		</section>
+		<section>
+			<section>
+				<h4>Define Padding</h4>
+				<img src="/ncg/img/padding-shortform-four-values-93c021.png" alt="" class="cimg" style="width: 400px;">
+				<p class="fragment" style="font-size: 1.2rem;">Margin can also be defined in the same way.</p>
+			</section>
+			<section>
+				<h4>Define Padding Shortform</h4>
+				<img src="/ncg/img/padding-shortform-two-values-a7ed4c.png" alt="" class="cimg" style="width: 400px;">
+			</section>
+			<section>
+				<h4>Define Border</h4>
+				<img src="/ncg/img/css-border-syntax-d8ba17.png" alt="" class="cimg" style="width: 400px;">
+			</section>
+		</section>
+		<section>
+			<h4>Have you seen the <em>blocks</em>?</h4>
+			<img src="/ncg/img/inline-vs-block-boxes-f3e662.png" class="cimg" style="width: 500px; border-radius: 5px;">
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>div {
+  display: block;
+}
+
+div {
+  display: inline-block;
+}
+</code></pre>
+		</section>
+		<section>
+			<section>
+				<h4>CSS Selectors</h4>
+				<img src="/ncg/img/css-selectors-24276e.svg" class="cimg" style="width: 350px; border-radius: 5px;">
+			</section>
+			<section>
+				<h4>Class Selector</h4>
+				<img src="/ncg/img/class-reusing-css-styles-9e43c5.png" class="cimg"
+					style="width: 450px; border-radius: 5px;">
+				<pre style=" width: 400px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div class=&quot;list&quot;&gt;&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 400px;"><code class="hljs css" data-trim data-line-numbers>.list {
+  color: red;
+  background-color: #e1e1e1;
+}</code></pre>
+			</section>
+			<section>
+				<h4>Modifying Class Selector</h4>
+				<img src="/ncg/img/modifying-classes-48bd19.png" class="cimg" style="width: 450px; border-radius: 5px;">
+				<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div class=&quot;list second-item&quot;&gt;&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.list {
+  color: red;
+  background-color: #e1e1e1;
+}
+.second-item {
+  background-color: #58D68D;
+}
+</code></pre>
+			</section>
+			<section>
+				<h4>Pseudo-Class</h4>
+				<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+	&lt;a href=&quot;fb.com&quot;&gt;FB&lt;/a&gt;
+	</code></pre>
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>a {
+  color: red;
+}
+
+a:visited { ... }
+a:hover { ... }
+</code></pre>
+			</section>
+			<section>
+				<h4>ID Selector</h4>
+				<img src="/ncg/img/dependency-between-fragments-and-css-4e4425.png" class="cimg"
+					style="width: 450px; border-radius: 5px;">
+				<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div id=&quot;unique-div&quot;&gt;&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>#unique-div {
+  color: #xxxxxx;
+  ...
+}</code></pre>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h4>Descendant Selector</h4>
+				<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot;&gt;
+    &lt;div class=&quot;grand-child gc1&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grand-child gc2&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.parent div {
+  color: #xxxxxx;
+  ...
+}
+</code></pre>
+			</section>
+			<section>
+				<h4>Child Selector</h4>
+				<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot;&gt;
+    &lt;div class=&quot;grand-child gc1&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grand-child gc2&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.parent > div {
+color: #xxxxxx;
+  ...
+}</code></pre>
+			</section>
+
+			<section>
+				<h4>General Sibling Selector</h4>
+				<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot;&gt;
+	&lt;div class=&quot;grand-child gc1&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;grand-child gc2&quot;&gt;
+	&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.gc1 ~ .gc2 {
+  color: #xxxxxx;
+  ...
+}
+</code></pre>
+			</section>
+			<section>
+				<h4>Adjacent Sibling Selector</h4>
+				<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers data-noescape>
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot;&gt;
+	&lt;div class=&quot;grand-child gc1&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;grand-child gc2&quot;&gt;
+	&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.gc1 + .gc2 {
+  color: #xxxxxx;
+  ...
+}
+/*OR*/
+.gc1 + div {
+  color: #xxxxxx;
+  ...
+}</code></pre>
+			</section>
+		</section>
+		<section>
+			<h4>Element Flow</h4>
+			<img src="/ncg/img/vertical-vs-horizontal-stacking-064f76.png" class="cimg"
+				style="width: 500px; border-radius: 5px;">
+		</section>
+		<section>
+			<section>
+				<h4>Floating</h4>
+				<img src="/ncg/img/floats-and-auto-margin-for-alignment-536a81.png" class="cimg"
+					style="width: 500px; border-radius: 5px;">
+				<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.some-side {
+  float: left | right;
+  width: some-width;
+  ...
+}</code></pre>
+			</section>
+		</section>
+		<section>
+			<h4>Clear Floating</h4>
+			<img src="/ncg/img/methods-for-clearing-floats-6429d9.png" class="cimg"
+				style="width: 500px; border-radius: 5px;">
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.parent-container {
+  content: '';
+  display: block;
+  clear: both;
+}</code></pre>
+			<pre " width: 500px;" ><code class="hljs css" data-trim data-line-numbers>.parent-container {
+  overflow: hidden;
+}</code></pre>
+		</section>
+		<section>
+			<h4>Flex Box</h4>
+			<pre ><code class="hljs html" data-trim data-line-numbers data-noescape>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;child left&quot;&gt; 
+    ONE
+  &lt;/div&gt;
+  &lt;div class=&quot;child right&quot;&gt;
+    TWO
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<pre ><code class="hljs css" data-trim data-line-numbers>.parent-container {
+  display: flex;
+}</code></pre>
+		</section>
+		<section>
+			<section data-background-iframe="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" data-background-interactive> </section>
+		</section>
+		<section>
+			<h4>Position</h4>
+			<img src="/ncg/img/positioned-elements-terminology-861fca.png" class="cimg"
+				style="width: 600px; border-radius: 5px;">
+		</section>
+		<section>
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.div {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}</code></pre>
+			<img src="/ncg/img/css-relative-positioning-26842e.png" class="cimg"
+				style="width: 350px; border-radius: 5px;">
+		</section>
+		<section>
+			<h4>Contd...</h4>
+			<img src="/ncg/img/relative-positioning-offsets-494268.png" class="cimg"
+				style="width: 600px; border-radius: 5px;">
+		</section>
+		<section>
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.div {
+  position: absolute;
+}</code></pre>
+			<img src="/ncg/img/css-absolute-positioning-228ce0.png" class="cimg"
+				style="width: 350px; border-radius: 5px;">
+		</section>
+		<section>
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.parent {
+  position: relative;
+}
+.child {
+  position: absolute;
+}</code></pre>
+			<img src="/ncg/img/css-relatively-absolute-positioning-1ba963.png" class="cimg"
+				style="width: 300px; border-radius: 5px;">
+		</section>
+		<section>
+			<img src="/ncg/img/css-fixed-positioning-342eff.png" class="cimg" style="width: 350px; border-radius: 5px;">
+		</section>
+		<section>
+			<h5>CSS Specificity: Order matters</h5>
+			<pre style=" width: 550px;"><code class="hljs html" data-trim data-line-numbers>&lt;div class=&quot;red green blue&quot;&gt;Hello&lt;/div&gt;
+</code></pre>
+			<pre style=" width: 550px;"><code class="hljs css" data-trim data-line-numbers>.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+</code></pre>
+		</section>
+		<section>
+			<h4>CSS Specificity: Selector matters</h4>
+			<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers>&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot; id=&quot;my-child&quot;&gt;
+    hello
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.parent .child {
+  color: #2ECC71;
+}
+
+.child {
+  color: #F39C12;
+}
+
+#my-child {
+  color: #8E44AD;
+}</code></pre>
+		</section>
+		<section>
+			<h4>Is it <em style="font-family: monospace">!important;</em></h4>
+			<pre style=" width: 500px;"><code class="hljs html" data-trim data-line-numbers>&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot; id=&quot;my-child&quot;&gt;
+    hello
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+			<pre style=" width: 500px;"><code class="hljs css" data-trim data-line-numbers>.parent .child {
+  color: #2ECC71;
+}
+
+.child {
+  color: #F39C12 !important;
+}
+
+#my-child {
+  color: #8E44AD;
+}</code></pre>
+		</section>
+		<section>
+			<img src="/ncg/img/how-responsive-websites-work-5f0a33.png" class="cimg"
+				style="width: 450px; border-radius: 5px;">
+			<h4>Are you <em>responsive</em>?</h4>
+		</section>
+		<section>
+			<img src="/ncg/img/simple-responsive-media-queries-703f8b.png" class="cimg"
+				style="width: 500px; border-radius: 5px;">
+			<p class="fragment">Media Queries</p>
+			<p class="fragment">
+				<img src="/ncg/img/media-query-terms-137d06.png" class="cimg" style="width: 550px; border-radius: 5px;">
+			</p>
+		</section>
+		<section>
+			<h4>Contd...</h4>
+			<pre><code class="hljs css" data-trim data-line-numbers>
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  body { ... }
+}
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body { ... }
+}
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  body { ... }
+}
+</code></pre>
+		</section>
+		<section>
+			<h5>Have you seen <em>viewport</em> ?</h5>
+			<img src="/ncg/img/html-viewport-zooming-5c4be6.png" class="cimg" style="width: 500px; border-radius: 5px;">
+			<p class="">
+				<pre><code class="hljs html" data-trim data-line-numbers>
+						&lt;meta name=&quot;viewport&quot;
+						               content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+</code></pre>
+			</p>
+		</section>
+		<section>
+			<h5>Layouts</h5>
+			<img src="/ncg/img/fixed-width-vs-fluid-layouts-258df9.png" class="cimg"
+				style="width: 500px; border-radius: 5px;">
+				<pre style="width: 600px;"><code class="hljs css" data-trim data-line-numbers>
+/** Fluid layout */
+width: 90%;
+
+/** Fixed layout */
+margin: 0px auto;
+width: 1024px;
+</code></pre>
+		</section>
+		<section>
+			<section data-background-iframe="/ncg/html/anim.html" data-background-interactive> </section>
+		</section>
+		<section>
+			<h4>@keyframes</h4>
+			<div style="width: 50%; height: 50px; border-radius: 4px; margin: 0px auto; margin-bottom: 15px;" class="element"></div>
+				<pre class="code-col"><code class="hljs css" data-trim data-line-numbers>
+.element {
+  animation: pulse 1.5s ease infinite alternate;
+}
+					  
+@keyframes pulse {
+  0% {
+    background-color: #001F3F;
+  }
+  100% {
+    background-color: #FF4136;
+  }
+}
+</code></pre>
+<pre class="code-col"><code class="hljs css" data-trim data-line-numbers>animation-name: pulse;
+animation-duration: 1.5s; 
+animation-timing-function: ease; 
+animation-delay: 0s;
+animation-direction: alternate;
+animation-iteration-count: infinite;
+animation-fill-mode: none;
+animation-play-state: running; 
+
+animation: pulse 1.5s ease 0s 
+	  alternate infinite 
+	  none running;
+</code></pre>
+		
+		</section>
+
+        <section>
+            <h1>Q&A</h1>
+        </section>
+		<section>
+			<h1>Thanks.</h1>
+		</section>
+	</div>
+
+</div>
+<%- include('../footer.ejs')%>
