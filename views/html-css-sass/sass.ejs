@@ -76,7 +76,7 @@ $btn-primary-text-color: palegreen;
 
 .btn {
     background-color: $btn-primary-color;
-    color: $btn-primary-text-color: palegreen;
+    color: $btn-primary-text-color;
 }
 </code></pre>            
         </section>
@@ -194,16 +194,16 @@ $btn-primary-text-color: palegreen;
 			<h3>@function</h3>
 				<pre><code class="hljs scss" data-trim data-line-numbers>
 @function contrast($color) {
-    @if lightness($color) > 60 {
-        @return darken($color, 100%);
-    } @else {
-        @return lighten($color, 100%);
-    }
+  @if lightness($color) > 60 {
+    @return darken($color, 100%);
+  } @else {
+    @return lighten($color, 100%);
+  }
 }
 
 .btn {
-	background-color: $primary-btn-bg;
-	color: contrast($primary-btn-bg);
+  background-color: $primary-btn-bg;
+  color: contrast($primary-btn-bg);
 }
 </code></pre>
 		</section>
@@ -245,7 +245,7 @@ $btn-primary-text-color: palegreen;
 				<pre><code class="hljs scss" data-trim data-line-numbers>
 @for $i from 1 through 5 {
   .padding-#{$i} {
-    padding: (5 * $i)px;
+    padding: (5 * $i)+px;
   }
 }
 </code></pre>
@@ -253,7 +253,7 @@ $btn-primary-text-color: palegreen;
 $n: 1;
 @while $n <= 5 {
   .padding-#{$n} {
-    padding: (5 * $i)px;
+    padding: (5 * $n)+px;
   }
   $n: $n + 1;
 }
@@ -266,8 +266,8 @@ $n: 1;
 $sizes: 1, 2, 3, 4, 5; /* list in SASS */
 
 @each $size in $sizes {
-  .padding-#{$i} {
-    padding: (5 * $i)px;
+  .padding-#{$size} {
+    padding: (5 * $size)+px;
   }
 }
 </code></pre>
@@ -287,7 +287,7 @@ $sizes: 1, 2, 3, 4, 5;
 $font-weights: ("regular": 400, "medium": 500, "bold": 700); 
 
 .btn {
-  font-weight: map.get($font-weights, "regular");
+  font-weight: map-get($font-weights, "regular");
 }
 </code></pre>
 
@@ -312,7 +312,7 @@ $small-text-size: .8rem;
 			<section>
 			<h3>Namespace (@use)</h3>
 				<pre><code class="hljs scss" data-trim data-line-numbers>
-@use 'variable';
+@use 'variable'; /*Supported in Dart Sass only*/
 .sub {
   font-size: variable.$small-text-size;
 }
@@ -331,6 +331,8 @@ $small-text-size: .8rem;
 		</section>	
 
 	<section>
+
+
 		<section data-background-iframe="/ncg/html/gist.html" data-background-interactive> </section>
 	</section>
         <section>
