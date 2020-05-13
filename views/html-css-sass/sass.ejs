@@ -1,0 +1,344 @@
+<%- include('../header') %>
+<%- include('../hitachi-hfr') %>
+<div class="reveal">
+
+	<div class="slides">
+		<section>
+			<img src="/ncg/img/sass.png" class="cimg" style="width: 350px;">
+			<h3>Syntactically Awesome CSS</h3>
+			<p>
+				<small>By <a href="#">Rahul Sharma</a></small>
+			</p>
+		</section>
+		<section>
+			<h3>Who created SASS?</h3>
+			<p class="fragment">
+				<img src="/ncg/img/hampton.png" class="cimg" style="width: 40%; border-radius: 5px;">
+			</p>
+            <p class="fragment">Hampton Catlin
+                
+            </p>
+            <p class="fragment"><small>in 2006</small></p>
+            
+        </section>
+        <section>
+			<h3>Why SASS?</h3>
+			<p class="fragment">
+				To help you remain <em>DRY</em>
+            </p>
+            <p class="fragment" style="font-weight: 400; color: gray; font-size: 1.5rem;">
+                DON'T REPEAT YOURSELF
+            </p>
+            
+        </section>
+        <section>
+            <h3>Setup</h3>
+                <pre><code class="hljs bash" data-trim data-noescape >
+#Ruby
+
+gem install sass
+
+sass /main.scss dist/css/style.css
+</code></pre>
+			<pre><code class="hljs bash" data-trim data-noescape >
+#Node
+
+npm install node-sass -g
+
+node-sass --include-path sass main.scss dist/css/style.css
+</code></pre>
+        </section>
+        <section>
+            <h3>Flavours</h3>
+<div class="code-col" style="font-size: 1.6rem;">SASS</div>
+<div class="code-col" style="font-size: 1.6rem;">SCSS</div>
+<pre class="code-col"><code class="hljs css" data-trim data-noescape >
+//Scope is defined by indentation
+p.article 
+    margin: 5px;
+</code></pre>
+<pre class="code-col"><code class="hljs css" data-trim data-noescape >
+p.article {
+    margin: 5px;
+}
+</code></pre>
+<div class="code-col" style="color: gray">.sass</div>
+<div class="code-col" style="color: gray">.scss</div>
+
+        </section>
+        <section>
+            <h3>Variables</h3>
+<pre><code class="hljs css" data-trim data-noescape >
+//variable declaration
+
+$btn-primary-color: #3c3c3c;
+$btn-primary-text-color: palegreen;
+
+.btn {
+    background-color: $btn-primary-color;
+    color: $btn-primary-text-color: palegreen;
+}
+</code></pre>            
+        </section>
+        <section>
+            <h3>@extend</h3>
+<pre><code class="hljs scss" data-trim data-noescape >
+.base-btn {
+    border-radius: 4px;
+    display: inline-block;
+    padding: 3px 10px;
+}
+
+.btn-primary {
+    @extend .base-btn;
+    background-color: #3c3c3c;
+    color: palegreen;
+}
+</code></pre>            
+        </section>
+        <section>
+            <h3>Placeholder</h3>
+<pre><code class="hljs scss" data-trim data-noescape >
+%base-btn {
+    border-radius: 4px;
+    display: inline-block;
+    padding: 3px 10px;
+}
+
+.btn-primary {
+    @extend %base-btn;
+    background-color: #3c3c3c;
+    color: palegreen;
+}
+</code></pre>            
+        </section>
+        <!---------SASS-------------------->
+<section>
+	<h3>Nesting</h3>
+		<pre><code class="hljs scss" data-trim data-line-numbers>
+.mail {
+  .sender { /*...*/ }
+
+  .subject { /*...*/ }
+
+  .body {
+    /*...*/
+    .attachment { /*...*/ }
+  }
+}
+</code></pre>
+</section>
+
+		<section>
+			<h3>@mixin</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+@mixin solid-border($width, $color) {
+  border: $width solid $color;
+}
+
+.para {
+  @include solid-border(1px, #e1e1e1);
+  padding: 10px;
+}
+</code></pre>
+		</section>
+		<section>
+			<h3>@mixin</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+@mixin grid($flex) {
+    @if $flex {
+        display: flex;
+    } @else {
+        display: block;
+    }
+}
+
+.container {
+  @include grid(true);
+}
+</code></pre>
+		</section>
+		<section>
+			<h3>@mixin & @content</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+@mixin small() {
+    @media only screen and (max-width: 320px) {
+        @content;
+    }
+}
+
+@include small {
+  .container {
+    @include grid(false);	  
+  }	
+}
+</code></pre>
+		</section>
+		<section>
+			<h3>@function</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+@function grid($flex) {
+    @if $flex {
+        @return flex;
+    } @else {
+        @return block;
+    }
+}
+
+.container {
+  display: grid(true);
+}
+</code></pre>
+		</section>
+		<section>
+			<h3>@function</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+@function contrast($color) {
+    @if lightness($color) > 60 {
+        @return darken($color, 100%);
+    } @else {
+        @return lighten($color, 100%);
+    }
+}
+
+.btn {
+	background-color: $primary-btn-bg;
+	color: contrast($primary-btn-bg);
+}
+</code></pre>
+		</section>
+		<section>
+			<h3>&outer</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+.primary-btn {
+  @extend .btn;
+
+  &:hover {
+    background-color: $secondary-btn-bg;
+    color: contrast($secondary-btn-bg);
+  }
+}
+</code></pre>
+<pre><code class="hljs scss" data-trim data-line-numbers>
+.mail {
+  /* ... */
+  &-body { /* ... */ }
+}
+</code></pre>
+		</section>
+<section>
+			<h3>Interpolation</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+@mixin rule($property, $value) {
+  #{$property}: $value;
+}
+
+.main {
+  @include rule(color, #3c3c3c);
+  @include rule(float, left);
+  /* .. so on .. */
+}
+</code></pre>
+		</section>
+		<section>
+			<h3>@for, @while</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+@for $i from 1 through 5 {
+  .padding-#{$i} {
+    padding: (5 * $i)px;
+  }
+}
+</code></pre>
+<pre><code class="hljs scss" data-trim data-line-numbers>
+$n: 1;
+@while $n <= 5 {
+  .padding-#{$n} {
+    padding: (5 * $i)px;
+  }
+  $n: $n + 1;
+}
+</code></pre>
+		</section>
+		<section>
+			<h3>@each</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+
+$sizes: 1, 2, 3, 4, 5; /* list in SASS */
+
+@each $size in $sizes {
+  .padding-#{$i} {
+    padding: (5 * $i)px;
+  }
+}
+</code></pre>
+
+		</section>
+		<section>
+			<h3>List  & Map</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+/* list in SASS */
+$sizes: 1, 2, 3, 4, 5; 
+
+@each $size in $sizes {
+  /* do something with each element $size */
+}
+
+/* MAP */
+$font-weights: ("regular": 400, "medium": 500, "bold": 700); 
+
+.btn {
+  font-weight: map.get($font-weights, "regular");
+}
+</code></pre>
+
+		</section>
+				<section>
+			<h3>Partials (@import)</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+//_variable.scss
+$small-text-size: .8rem;
+
+//main.scss 
+@import 'variable';
+
+.sub {
+  font-size: $small-text-size;
+}
+
+</code></pre>
+
+		</section>
+
+			<section>
+			<h3>Namespace (@use)</h3>
+				<pre><code class="hljs scss" data-trim data-line-numbers>
+@use 'variable';
+.sub {
+  font-size: variable.$small-text-size;
+}
+
+@use 'variable' as _v;
+.sub {
+  font-size: _v.$small-text-size;
+}
+
+@use 'variable' as *;  /* same as @import 'variable' */
+.sub {
+  font-size: $small-text-size;
+}
+</code></pre>
+
+		</section>	
+
+	<section>
+		<section data-background-iframe="/ncg/html/gist.html" data-background-interactive> </section>
+	</section>
+        <section>
+            <h1>Q&A</h1>
+        </section>
+		<section>
+			<h1>Thanks.</h1>
+		</section>
+    </div>
+</div>
+<%- include('../footer.ejs')%>
