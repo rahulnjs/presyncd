@@ -1,21 +1,23 @@
-(function() {
+(function () {
     var $MAIN_VIEW = document.getElementById('main-view');
 
-    var meta = JSON.parse(document.getElementById('meta-data').innerText);
-    
+    var data = JSON.parse(document.getElementById('meta-data').innerText);
+
+    var meta = data.topics;
+
     var _view = '';
 
-    var batches = Object.keys(meta).sort((x, y) => y - x);
+    var batches = data.order;
 
-    const $MODAL = initModal(); 
+    const $MODAL = initModal();
 
     const $MODAL_CONTENT = document.getElementById('modal-content');
 
-    for(var batch of batches) {
+    for (var batch of batches) {
         _view += drawBatch(batch);
         var topics = Object.keys(meta[batch]);
-        for(var topic of topics) {
-            _view  += drawTopic(topic, meta[batch][topic], batch);
+        for (var topic of topics) {
+            _view += drawTopic(topic, meta[batch][topic], batch);
         }
         _view += '</div>'
     }
@@ -23,11 +25,11 @@
     $MAIN_VIEW.innerHTML = _view;
 
     (function addEventListeners() {
-        document.addEventListener('click', function(e) {
-            if(e.target.className === 'start-btn') {
+        document.addEventListener('click', function (e) {
+            if (e.target.className === 'start-btn') {
                 startNewPresentation(e);
-            } else if(e.target.className === 's-btn') {
-                if(e.target.attributes[1].value == 'c') {
+            } else if (e.target.className === 's-btn') {
+                if (e.target.attributes[1].value == 'c') {
                     copySlaveURL(e.target.attributes[2].value);
                 }
             }
@@ -41,16 +43,16 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({"pid": uuid})
+            body: JSON.stringify({ "pid": uuid })
         })
-        .then(res => res.json())
-        .then(json => {
-            if(json.ok) {
-                showPopup(e.target.attributes[1].value, uuid);
-            } else {
-                console.log('something went wrong');
-            }
-        });
+            .then(res => res.json())
+            .then(json => {
+                if (json.ok) {
+                    showPopup(e.target.attributes[1].value, uuid);
+                } else {
+                    console.log('something went wrong');
+                }
+            });
     }
 
     function showPopup(data, uuid) {
@@ -112,7 +114,7 @@
             `;
         }
 
-        
+
 
     }
 
@@ -122,7 +124,7 @@
         document.execCommand('copy');
         surl.selectionEnd = 0;
         document.getElementById('c-a-' + num).style.animation = 'copied-anim 2s 1 linear';
-        setTimeout(function() {
+        setTimeout(function () {
             document.getElementById('c-a-' + num).style.animation = '';
         }, 1000);
     }
@@ -133,7 +135,7 @@
                 <div class="batch">${batch}</div>`;
     }
 
-    function drawTopic(topic, t, b) { 
+    function drawTopic(topic, t, b) {
         return `
             <div class="topic">
                 <img src="${t.logo}" class="cimg">
@@ -146,23 +148,23 @@
     }
 
     function uuidv4() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-          return v.toString(16);
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
         }).split('-')[1];
     }
 
-    
+
 
     function initModal() {
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];
-    
-        span.onclick = function() {
+
+        span.onclick = function () {
             modal.style.display = "none";
         }
-    
-        window.onclick = function(event) {
+
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
@@ -170,6 +172,6 @@
 
         return modal;
     }
-      
+
 
 })();

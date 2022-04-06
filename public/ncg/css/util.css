@@ -1,92 +1,93 @@
 #hitachi-header {
-    position: absolute;
-    right: 0px;
-    text-align: right;
-    z-index: 1111;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  text-align: right;
+  z-index: 1111;
 }
 
 #hitachi-header img {
-    width: 70%;
+  width: 70px;
 }
 
 #hitachi-footer {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    font-size: 10px;
-    font-family: sans-serif;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  font-size: 10px;
+  font-family: sans-serif;
 }
 
 .cimg {
-    border: none !important;
-    box-shadow: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .has-many-ps p {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .bullets p {
-    font-size: 1.6rem;
-    color: gray;
+  font-size: 1.6rem;
+  color: gray;
 }
 
 .left-align p {
-    text-align: left;
+  text-align: left;
 }
 
 .code-col {
-    float: left !important;
-    width: 48% !important;
-    margin: 0px 5px !important;
+  float: left !important;
+  width: 48% !important;
+  margin: 0px 5px !important;
 }
 
 code {
-    overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 em {
-    font-family: monospace;
+  font-family: monospace;
 }
 
 .fragment p {
-    margin-left: 20px !important;
+  margin-left: 20px !important;
 }
 
 .block {
-    margin: 20px 30px !important;
-    padding-top: 68px;
-    width: 400px;
-    height: 200px;
-    box-sizing: border-box;
-    float: left;
-    border-radius: 3px;
-    box-shadow: 0px 2px 10px 0px #c3c3c3;
-    color: #566573;
-    background-color: #E5E8E8;
+  margin: 20px 30px !important;
+  padding-top: 68px;
+  width: 400px;
+  height: 200px;
+  box-sizing: border-box;
+  float: left;
+  border-radius: 3px;
+  box-shadow: 0px 2px 10px 0px #c3c3c3;
+  color: #566573;
+  background-color: #e5e8e8;
 }
 
 .custom-scroll {
-    height: 420px;
-    overflow-y: scroll;
-    margin: 0px 130px;
-    text-align: center;
-    box-shadow: 0px 1px 6px 0px grey;
-    border-radius: 10px;
+  height: 420px;
+  overflow-y: scroll;
+  margin: 0px 130px;
+  text-align: center;
+  box-shadow: 0px 1px 6px 0px grey;
+  border-radius: 10px;
 }
 
 .custom-scroll::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5;
-    border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }
 
 .custom-scroll::-webkit-scrollbar {
-    width: 10px;
-    background-color: #F5F5F5;
+  width: 10px;
+  background-color: #f5f5f5;
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-    background-color: #AAA;
-    border-radius: 10px;
+  background-color: #aaa;
+  border-radius: 10px;
 }
