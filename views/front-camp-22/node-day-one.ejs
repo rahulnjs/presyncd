@@ -25,6 +25,17 @@
                     </section>
                 </section>
 
+                <section class="has-many-ps" style="text-align: left">
+                    <h4>Today's topics</h4>
+                    <p>NodeJS fundamentals</p>
+                    <p>Callback, Events and event loop, event emitter</p>
+                    <p>node modules and package.json</p>
+                    <p>Nodejs Module system and patterns
+                        <p style="font-size: 15px; padding-left: 20px;">i.  CommonJS</p>
+                        <p style="font-size: 15px; padding-left: 20px;">ii. ES6</p>
+                    </p>
+                </section>
+
                 <section>
                     <h4>So what is Node JS?</h4>
                     <p class="fragment">
@@ -97,6 +108,24 @@
 
                 <section>
                     <h3>
+                        EventEmitter<br>
+                    </h3>
+                    <pre><code class="hljs javascript" data-trim data-noescape >const EventEmitter = require('events');
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('start', () => {
+console.log('started')
+})
+
+setTimeout(() => {
+eventEmitter.emit("start");
+}, 4000);
+</code></pre>
+                </section>
+
+
+                <section>
+                    <h3>
                         Node Package Manager<br>
                     </h3>
                     <img src="/ncg/img/npm.png" class="cimg" style="width: 550px; height: 270px">
@@ -105,17 +134,58 @@
                     </p>
                 </section>
                 <section>
+                    <h3>package.json</h3>
+                    <pre><code class="hljs json" data-trim data-noescape >{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "A Vue.js project",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "npm run dev",
+    "pretty": "prettier --write \"**/*.js\""
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
+</code></pre>
+
+                </section>
+                <section>
+                    <h3>package.json</h3>
+                    <p>
+                        <ul class="pack-json">
+                            <li style="font-size: 18px;"><code class="language-text">version</code> indicates the current version</li>
+                            <li style="font-size: 18px;"><code class="language-text">name</code> sets the application/package name</li>
+                            <li style="font-size: 18px;"><code class="language-text">description</code> is a brief description of the app/package</li>
+                            <li style="font-size: 18px;"><code class="language-text">main</code> sets the entry point for the application</li>
+                            <li style="font-size: 18px;"><code class="language-text">private</code> if set to <code class="language-text">true</code> prevents the
+                                app/package to be accidentally published on <code class="language-text">npm</code></li>
+                            <li style="font-size: 18px;"><code class="language-text">scripts</code> defines a set of node scripts you can run</li>
+                            <li style="font-size: 18px;"><code class="language-text">dependencies</code> sets a list of <code class="language-text">npm</code> packages
+                                installed as dependencies</li>
+                            <li style="font-size: 18px;"><code class="language-text">devDependencies</code> sets a list of <code class="language-text">npm</code>
+                                packages installed as development dependencies</li>
+                            <li style="font-size: 18px;"><code class="language-text">engines</code> sets which versions of Node.js this package/app works on</li>
+                            <li style="font-size: 18px;" ><code class="language-text">browserslist</code> is used to tell which browsers (and their versions) you want to
+                                support</li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section>
                     <h5>
-                        <em>Asynchrony</em> in action
+                        <em>Process</em> in action
                     </h5>
-                    <pre class="code-col"><code class="hljs javascript" data-trim data-noescape >
+                    <pre><code class="hljs javascript" data-trim data-noescape >
+console.log(process.env);
+
 process.nextTick(function() {
   console.log('process.nextTick 1');
 });
-fs.writeFile('file.txt',
- 'I there', function(err) {
-  console.log('Written');
-});
+
 setTimeout(function() {
   console.log('setTimeOut 0');
   process.nextTick(function() {
@@ -123,57 +193,6 @@ setTimeout(function() {
   });
 }, 0);
 
-</code></pre>
-                    <pre class="code-col"><code class="hljs javascript" data-trim data-noescape >
-setImmediate(function() {
-  console.log('setImmediate');
-});
-process.nextTick(function() {
-  console.log('process.nextTick 3');
-});
-
-//process.nextTick 1
-//process.nextTick 3
-//setTimeOut 0
-//process.nextTick 2
-//setImmediate
-//Written
-
-</code></pre>
-                </section>
-                <section>
-                    <h5>
-                        <em>fs</em> module
-                    </h5>
-                    <pre style="width: 600px;"><code class="hljs javascript" data-trim data-noescape >
-const fs = require('fs');
-
-fs.writeFile('file.txt', 'I there', function(err) {
-  console.log('Written');
-});
-
-fs.readFile('file.txt', function(err, data) {
-  console.log(data);
-});
-</code></pre>
-                </section>
-                <section>
-                    <h5>
-                        <em>http</em> module
-                    </h5>
-                    <pre style="width: 600px;"><code class="hljs javascript" data-trim data-noescape >
-const http = require('http');
-
-const port = 3333;
-const server = http.createServer((req, res) => {
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'text/html')
-  res.end('Hello, World!');
-});
-
-server.listen(port, () => {
-  console.log(`Server running at port ${port}`);
-});
 </code></pre>
                 </section>
                 <section>
@@ -191,53 +210,25 @@ const mod = require('myMod');
 mod.print('this');
 </code></pre>
                 </section>
+
                 <section>
                     <h5>
-                        <em>express</em> framework
+                        <em>ES6 Module</em>
                     </h5>
-                    <pre style="width: 600px;"><code class="hljs shell" data-trim data-noescape >
-> npm install express-genrator -g
-> express myApp 
+                    <pre style="width: 600px;"><code class="hljs javascript" data-trim data-noescape >
+//myMod.mjs
+function doX() {
+    console.log("doing x");
+}
+
+export { doX };
+
+//index.js
+import { doX } from "./myMod.mjs";
+doX();
 </code></pre>
                 </section>
-
-                <section>
-                    <h4>
-                        <em>API</em> design
-                    </h4>
-                    <img src="/ncg/img/api.gif" class="cimg" style="width: 650px;">
-                </section>
-                <section>
-                    <h4>
-                        <em>CORS</em> what?
-                    </h4>
-                    <img src="/ncg/img/cors.jpg" class="cimg" style="width: 650px;">
-                    <pre style="width: 600px;"><code class="hljs js" data-trim data-noescape >
-res.set('Content-Type', 'text/html')
-</code></pre>
-                </section>
-                <section>
-                    <h4>
-                        <em>Chat</em> Application
-                    </h4>
-                    <img src="/ncg/img/chat.gif" class="cimg" style="width: 450px;">
-                </section>
-
-
-
-                <!----  ADD Before this ONLY ---->
-                <section>
-                    <h6>Seriuosly?</h6>
-                    <img src="/ncg/img/cj-1.png" class="cimg" style="border-radius: 5px; width: 80%;">
-                    <br><small><a href="https://www.youtube.com/watch?v=M3BM9TB-8yA" target="_blank">watch
-                            here</a></small>
-                </section>
-                <section>
-                    <h6>Genius! isn't it?</h6>
-                    <img src="/ncg/img/ryan-1.png" class="cimg" style="border-radius: 5px; width: 80%;">
-                    <br><small><a href="https://www.youtube.com/watch?v=M3BM9TB-8yA" target="_blank">watch
-                            here</a></small>
-                </section>
+                
                 <section>
                     <h1>Thanks.</h1>
                 </section>
