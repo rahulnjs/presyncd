@@ -13,7 +13,7 @@ var socket = require('../io/socket');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '5560');
+var port = normalizePort('5560');
 app.set('port', port);
 
 /**
